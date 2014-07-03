@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:context="http://www.springframework.org/schema/context" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+	<spring:beans>
+	
+		<spring:bean id="objectMapper" class="com.ricston.mule.statistics.JacksonObjectMapper" />
+	
+		<spring:bean id="garbadgeCollector" class="com.ricston.mule.statistics.GarbadgeCollector">
+			<spring:property name="host" value="${jmx.host}"/>
+			<spring:property name="port" value="${jmx.port}"/>
+			<spring:property name="path" value="${jmx.path}"/>
+		</spring:bean>
+		
+		<spring:bean id="memoryCollector" class="com.ricston.mule.statistics.MemoryCollector">
+			<spring:property name="host" value="${jmx.host}"/>
+			<spring:property name="port" value="${jmx.port}"/>
+			<spring:property name="path" value="${jmx.path}"/>
+		</spring:bean>
+	</spring:beans>
+    <context:property-placeholder location="classpath:collector.properties"/>
+	
+	
+    <flow name="scheduler" doc:name="scheduler">
+        <quartz:inbound-endpoint jobName="garbadgeGenerator" responseTimeout="10000" doc:name="Quartz" cronExpression="${cron}">
+            <quartz:event-generator-job >
+                <quartz:payload>generator</quartz:payload>
+            </quartz:event-generator-job>
+        </quartz:inbound-endpoint>
+        <scatter-gather doc:name="Scatter-Gather">
+            <flow-ref name="statistics-garbadge" doc:name="Garbadge"/>
+            <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/>
+        </scatter-gather>
+    </flow>
+    
+    <sub-flow name="statistics-garbadge" doc:name="statistics-garbadge">
+        <component doc:name="Garbadge">
+        	<no-arguments-entry-point-resolver>
+        		<include-entry-point method="collectStatistics"/>
+        	</no-arguments-entry-point-resolver>
+        	<spring-object bean="garbadgeCollector" />
+        </component>
+        <foreach doc:name="For Each">
+            <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
+            <http:outbound-endpoint exchange-pattern="request-response" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule/jvm" method="POST" doc:name="HTTP"/>
+        </foreach>
+    </sub-flow>
+    
+    <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
+        <component doc:name="Memory">
+        	<no-arguments-entry-point-resolver>
+        		<include-entry-point method="collectStatistics"/>
+        	</no-arguments-entry-point-resolver>
+        	<spring-object bean="memoryCollector" />
+        </component>
+        <foreach doc:name="For Each">
+            <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
+            <http:outbound-endpoint exchange-pattern="request-response" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule/jvm" method="POST" doc:name="HTTP"/>
+        </foreach>
+    </sub-flow>
+</mule>

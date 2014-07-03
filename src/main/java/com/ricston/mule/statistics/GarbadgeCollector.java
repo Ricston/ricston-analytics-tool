@@ -20,26 +20,22 @@ public class GarbadgeCollector extends AbstractCollector{
 	public List<Garbadge> collect() throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		List<Garbadge> stats = new ArrayList<Garbadge>();
 		
-		String collectorName = "PS MarkSweep";
+		stats.add(collectStat("PS MarkSweep"));
+		stats.add(collectStat("PS Scavenge"));
+		
+		return stats;
+	}
+	
+	protected Garbadge collectStat(String collectorName) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+		
 		ObjectName objectName = new ObjectName(ManagementFactory.GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE + ",name=" + collectorName);
 		
 		Garbadge stat = new Garbadge();
 		stat.setName(collectorName);
 		stat.setCollectionCount((Long) mbeanServer.getAttribute(objectName, "CollectionCount"));
 		stat.setCollectionTime((Long) mbeanServer.getAttribute(objectName, "CollectionTime"));
-		stats.add(stat);
 		
-		collectorName = "PS Scavenge";
-		objectName = new ObjectName(ManagementFactory.GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE + ",name=" + collectorName);
-		
-		stat = new Garbadge();
-		stat.setName(collectorName);
-		stat.setCollectionCount((Long) mbeanServer.getAttribute(objectName, "CollectionCount"));
-		stat.setCollectionTime((Long) mbeanServer.getAttribute(objectName, "CollectionTime"));
-		stats.add(stat);
-		
-		return stats;
-		
+		return stat;
 	}
 
 }

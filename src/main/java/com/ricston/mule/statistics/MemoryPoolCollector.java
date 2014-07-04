@@ -15,7 +15,7 @@ import javax.management.openmbean.CompositeDataSupport;
 
 import com.ricston.mule.statistics.model.MemoryPool;
 
-public class MemoryCollector extends AbstractCollector{
+public class MemoryPoolCollector extends AbstractCollector{
 	
 	@Override
 	public List<MemoryPool> collect() throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{

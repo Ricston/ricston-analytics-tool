@@ -20,7 +20,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<spring:property name="path" value="${jmx.path}"/>
 		</spring:bean>
 		
-		<spring:bean id="memoryCollector" class="com.ricston.mule.statistics.MemoryCollector">
+		<spring:bean id="memoryPoolCollector" class="com.ricston.mule.statistics.MemoryPoolCollector">
 			<spring:property name="host" value="${jmx.host}"/>
 			<spring:property name="port" value="${jmx.port}"/>
 			<spring:property name="path" value="${jmx.path}"/>
@@ -48,10 +48,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
         	</no-arguments-entry-point-resolver>
         	<spring-object bean="garbadgeCollector" />
         </component>
-        <foreach doc:name="For Each">
-            <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
-            <http:outbound-endpoint exchange-pattern="request-response" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule/jvm" method="POST" doc:name="HTTP"/>
-        </foreach>
+        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
@@ -59,8 +56,11 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
         	<no-arguments-entry-point-resolver>
         		<include-entry-point method="collectStatistics"/>
         	</no-arguments-entry-point-resolver>
-        	<spring-object bean="memoryCollector" />
+        	<spring-object bean="memoryPoolCollector" />
         </component>
+        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+    </sub-flow>
+    <sub-flow name="jvm-elasticsearch" doc:name="jvm-elasticsearch">
         <foreach doc:name="For Each">
             <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
             <http:outbound-endpoint exchange-pattern="request-response" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule/jvm" method="POST" doc:name="HTTP"/>

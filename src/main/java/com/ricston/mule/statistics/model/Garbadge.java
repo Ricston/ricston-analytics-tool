@@ -6,7 +6,7 @@ public class Garbadge extends AbstractCollectorStatistics {
 	private Long collectionTime;
 	
 	public Garbadge(){
-		this.setType(StatisticsType.GARBADGE_COLLECTOR);
+		super(StatisticsType.GARBADGE_COLLECTOR);
 	}
 	
 	public Long getCollectionCount() {

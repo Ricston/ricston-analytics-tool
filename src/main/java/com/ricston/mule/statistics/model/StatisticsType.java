@@ -4,6 +4,7 @@ public enum StatisticsType {
 	
 	GARBADGE_COLLECTOR,
 	MEMORY_POOL,
-	MEMORY;
+	MEMORY,
+	OPERATING_SYSTEM;
 
 }

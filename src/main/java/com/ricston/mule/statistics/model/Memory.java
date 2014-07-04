@@ -9,7 +9,7 @@ public class Memory extends AbstractCollectorStatistics {
 	private Long used;
 	
 	public Memory(){
-		this.setType(StatisticsType.MEMORY);
+		super(StatisticsType.MEMORY);
 	}
 	
 	public Long getCommitted() {

@@ -12,6 +12,10 @@ public class AbstractCollectorStatistics {
 	private StatisticsType type;
 	
 	private Date timestamp = new Date();
+	
+	public AbstractCollectorStatistics(StatisticsType type){
+		this.type = type;
+	}
 
 	public String getName() {
 		return name;

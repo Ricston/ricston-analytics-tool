@@ -20,6 +20,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<spring:property name="path" value="${jmx.path}"/>
 		</spring:bean>
 		
+		<spring:bean id="memoryCollector" class="com.ricston.mule.statistics.MemoryCollector">
+			<spring:property name="host" value="${jmx.host}"/>
+			<spring:property name="port" value="${jmx.port}"/>
+			<spring:property name="path" value="${jmx.path}"/>
+		</spring:bean>
+		
 		<spring:bean id="memoryPoolCollector" class="com.ricston.mule.statistics.MemoryPoolCollector">
 			<spring:property name="host" value="${jmx.host}"/>
 			<spring:property name="port" value="${jmx.port}"/>
@@ -35,9 +41,11 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
                 <quartz:payload>generator</quartz:payload>
             </quartz:event-generator-job>
         </quartz:inbound-endpoint>
+        <logger message="Collection kicked off" level="INFO" doc:name="Kicked Off"/>
         <scatter-gather doc:name="Scatter-Gather">
             <flow-ref name="statistics-garbadge" doc:name="Garbadge"/>
             <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/>
+            <flow-ref name="statistics-memory" doc:name="Memory"/>
         </scatter-gather>
     </flow>
     
@@ -49,16 +57,29 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
         	<spring-object bean="garbadgeCollector" />
         </component>
         <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <logger message="Garbadge collection saved remotely" level="INFO" doc:name="Logger"/>
+    </sub-flow>
+    
+    <sub-flow name="statistics-memory" doc:name="statistics-memory">
+        <component doc:name="Memory">
+        	<no-arguments-entry-point-resolver>
+        		<include-entry-point method="collectStatistics"/>
+        	</no-arguments-entry-point-resolver>
+        	<spring-object bean="memoryCollector" />
+        </component>
+        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <logger message="Memory collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
-        <component doc:name="Memory">
+        <component doc:name="MemoryPool">
         	<no-arguments-entry-point-resolver>
         		<include-entry-point method="collectStatistics"/>
         	</no-arguments-entry-point-resolver>
         	<spring-object bean="memoryPoolCollector" />
         </component>
         <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <logger message="Memory pool collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     <sub-flow name="jvm-elasticsearch" doc:name="jvm-elasticsearch">
         <foreach doc:name="For Each">

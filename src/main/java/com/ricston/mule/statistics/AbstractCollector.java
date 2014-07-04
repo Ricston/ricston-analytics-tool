@@ -52,7 +52,10 @@ public abstract class AbstractCollector {
 		logger.debug("Closing connection");
 		if (jmxConnector != null){
 			jmxConnector.close();
+			jmxConnector = null;
 		}
+		
+		mbeanServer = null;
 	}
 	
 	public abstract List<? extends AbstractCollectorStatistics> collect() throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException;

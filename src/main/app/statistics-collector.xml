@@ -37,6 +37,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<spring:property name="port" value="${jmx.port}"/>
 			<spring:property name="path" value="${jmx.path}"/>
 		</spring:bean>
+		
+		<spring:bean id="flowCollector" class="com.ricston.mule.statistics.FlowCollector">
+			<spring:property name="host" value="${jmx.host}"/>
+			<spring:property name="port" value="${jmx.port}"/>
+			<spring:property name="path" value="${jmx.path}"/>
+		</spring:bean>
 	</spring:beans>
     <context:property-placeholder location="classpath:collector.properties"/>
 	
@@ -53,6 +59,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
             <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/>
             <flow-ref name="statistics-memory" doc:name="Memory"/>
             <flow-ref name="operating-system" doc:name="Operating System"/>
+            <flow-ref name="flow" doc:name="Flow"/>
         </scatter-gather>
     </flow>
     
@@ -98,6 +105,17 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
         </component>
         <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
         <logger message="Operating system collection saved remotely" level="INFO" doc:name="Logger"/>
+    </sub-flow>
+    
+    <sub-flow name="flow" doc:name="flow">
+        <component doc:name="Flow">
+        	<no-arguments-entry-point-resolver>
+        		<include-entry-point method="collectStatistics"/>
+        	</no-arguments-entry-point-resolver>
+        	<spring-object bean="flowCollector" />
+        </component>
+        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <logger message="Flow collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="jvm-elasticsearch" doc:name="jvm-elasticsearch">

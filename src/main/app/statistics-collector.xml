@@ -34,7 +34,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
                 <quartz:payload>generator</quartz:payload>
             </quartz:event-generator-job>
         </quartz:inbound-endpoint>
-        <logger message="Collection kicked off" level="INFO" doc:name="Kicked Off"/>
+        <logger message="Statistics collection kicked off" level="INFO" doc:name="Kicked Off"/>
         <expression-component doc:name="JMX Connect"><![CDATA[app.registry.jmxConnector.connect();]]></expression-component>
         <set-payload doc:name="MbeanServer" value="#[app.registry.jmxConnector.mbeanServer]"/>
         <scatter-gather doc:name="scatter-gather">
@@ -45,6 +45,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <flow-ref name="flow" doc:name="Flow"/>
         </scatter-gather>
         <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
+        <logger message="Statistics collection complete" level="INFO" doc:name="Complete"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">
             <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
         </catch-exception-strategy>
@@ -53,25 +54,21 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     <sub-flow name="statistics-garbadge" doc:name="statistics-garbadge">
         <component doc:name="Garbadge" class="com.ricston.mule.statistics.GarbadgeCollector" />
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-        <logger message="Garbadge collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory" doc:name="statistics-memory">
         <component doc:name="Memory" class="com.ricston.mule.statistics.MemoryCollector" />
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-        <logger message="Memory collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
         <component doc:name="MemoryPool" class="com.ricston.mule.statistics.MemoryPoolCollector" />
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-        <logger message="Memory pool collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="operating-system" doc:name="operating-system">
         <component doc:name="OperatingSystem" class="com.ricston.mule.statistics.OperatingSystemCollector" />
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-        <logger message="Operating system collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="flow" doc:name="flow">
@@ -79,7 +76,6 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         	<spring-object bean="flowCollector" />
         </component>
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-        <logger message="Flow collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="elasticsearch-stats" doc:name="elasticsearch-stats">

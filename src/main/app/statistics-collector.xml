@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:context="http://www.springframework.org/schema/context" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:context="http://www.springframework.org/schema/context" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
@@ -8,120 +8,85 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
 http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
 
 	<spring:beans>
 	
 		<spring:bean id="objectMapper" class="com.ricston.mule.statistics.JacksonObjectMapper" />
+		
+		<spring:bean id="jmxConnector" class="com.ricston.mule.jmx.Connector">
+			<spring:property name="host" value="${jmx.host}"/>
+			<spring:property name="port" value="${jmx.port}"/>
+			<spring:property name="path" value="${jmx.path}"/>
+		</spring:bean>
 	
-		<spring:bean id="garbadgeCollector" class="com.ricston.mule.statistics.GarbadgeCollector">
-			<spring:property name="host" value="${jmx.host}"/>
-			<spring:property name="port" value="${jmx.port}"/>
-			<spring:property name="path" value="${jmx.path}"/>
-		</spring:bean>
+		<spring:bean id="flowCollector" class="com.ricston.mule.statistics.FlowCollector" />
 		
-		<spring:bean id="memoryCollector" class="com.ricston.mule.statistics.MemoryCollector">
-			<spring:property name="host" value="${jmx.host}"/>
-			<spring:property name="port" value="${jmx.port}"/>
-			<spring:property name="path" value="${jmx.path}"/>
-		</spring:bean>
-		
-		<spring:bean id="memoryPoolCollector" class="com.ricston.mule.statistics.MemoryPoolCollector">
-			<spring:property name="host" value="${jmx.host}"/>
-			<spring:property name="port" value="${jmx.port}"/>
-			<spring:property name="path" value="${jmx.path}"/>
-		</spring:bean>
-		
-		<spring:bean id="operatingSystemCollector" class="com.ricston.mule.statistics.OperatingSystemCollector">
-			<spring:property name="host" value="${jmx.host}"/>
-			<spring:property name="port" value="${jmx.port}"/>
-			<spring:property name="path" value="${jmx.path}"/>
-		</spring:bean>
-		
-		<spring:bean id="flowCollector" class="com.ricston.mule.statistics.FlowCollector">
-			<spring:property name="host" value="${jmx.host}"/>
-			<spring:property name="port" value="${jmx.port}"/>
-			<spring:property name="path" value="${jmx.path}"/>
-		</spring:bean>
 	</spring:beans>
+	
     <context:property-placeholder location="classpath:collector.properties"/>
 	
 	
     <flow name="scheduler" doc:name="scheduler">
-        <quartz:inbound-endpoint jobName="garbadgeGenerator" responseTimeout="10000" doc:name="Quartz" cronExpression="${cron}">
+        <quartz:inbound-endpoint jobName="scheduler" responseTimeout="10000" doc:name="Quartz" cronExpression="${cron}">
             <quartz:event-generator-job >
                 <quartz:payload>generator</quartz:payload>
             </quartz:event-generator-job>
         </quartz:inbound-endpoint>
         <logger message="Collection kicked off" level="INFO" doc:name="Kicked Off"/>
-        <scatter-gather doc:name="Scatter-Gather">
+        <expression-component doc:name="JMX Connect"><![CDATA[app.registry.jmxConnector.connect();]]></expression-component>
+        <set-payload doc:name="MbeanServer" value="#[app.registry.jmxConnector.mbeanServer]"/>
+        <scatter-gather doc:name="scatter-gather">
             <flow-ref name="statistics-garbadge" doc:name="Garbadge"/>
             <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/>
             <flow-ref name="statistics-memory" doc:name="Memory"/>
             <flow-ref name="operating-system" doc:name="Operating System"/>
             <flow-ref name="flow" doc:name="Flow"/>
         </scatter-gather>
+        <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
+        </catch-exception-strategy>
     </flow>
     
     <sub-flow name="statistics-garbadge" doc:name="statistics-garbadge">
-        <component doc:name="Garbadge">
-        	<no-arguments-entry-point-resolver>
-        		<include-entry-point method="collectStatistics"/>
-        	</no-arguments-entry-point-resolver>
-        	<spring-object bean="garbadgeCollector" />
-        </component>
-        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <component doc:name="Garbadge" class="com.ricston.mule.statistics.GarbadgeCollector" />
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
         <logger message="Garbadge collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory" doc:name="statistics-memory">
-        <component doc:name="Memory">
-        	<no-arguments-entry-point-resolver>
-        		<include-entry-point method="collectStatistics"/>
-        	</no-arguments-entry-point-resolver>
-        	<spring-object bean="memoryCollector" />
-        </component>
-        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <component doc:name="Memory" class="com.ricston.mule.statistics.MemoryCollector" />
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
         <logger message="Memory collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
-        <component doc:name="MemoryPool">
-        	<no-arguments-entry-point-resolver>
-        		<include-entry-point method="collectStatistics"/>
-        	</no-arguments-entry-point-resolver>
-        	<spring-object bean="memoryPoolCollector" />
-        </component>
-        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <component doc:name="MemoryPool" class="com.ricston.mule.statistics.MemoryPoolCollector" />
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
         <logger message="Memory pool collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="operating-system" doc:name="operating-system">
-        <component doc:name="OperatingSystem">
-        	<no-arguments-entry-point-resolver>
-        		<include-entry-point method="collectStatistics"/>
-        	</no-arguments-entry-point-resolver>
-        	<spring-object bean="operatingSystemCollector" />
-        </component>
-        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <component doc:name="OperatingSystem" class="com.ricston.mule.statistics.OperatingSystemCollector" />
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
         <logger message="Operating system collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
     <sub-flow name="flow" doc:name="flow">
         <component doc:name="Flow">
-        	<no-arguments-entry-point-resolver>
-        		<include-entry-point method="collectStatistics"/>
-        	</no-arguments-entry-point-resolver>
         	<spring-object bean="flowCollector" />
         </component>
-        <flow-ref name="jvm-elasticsearch" doc:name="Jvm Elastic Search"/>
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
         <logger message="Flow collection saved remotely" level="INFO" doc:name="Logger"/>
     </sub-flow>
     
-    <sub-flow name="jvm-elasticsearch" doc:name="jvm-elasticsearch">
+    <sub-flow name="elasticsearch-stats" doc:name="elasticsearch-stats">
         <foreach doc:name="For Each">
+            <set-variable variableName="type" value="#[payload.type.toString()]" doc:name="type"/>
             <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
-            <http:outbound-endpoint exchange-pattern="request-response" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule/jvm" method="POST" doc:name="HTTP"/>
+            <http:outbound-endpoint exchange-pattern="one-way" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule-#[new org.mule.el.datetime.DateTime().format('yyyy.MM.dd')]/#[flowVars.type]" method="POST"    doc:name="HTTP" />
         </foreach>
     </sub-flow>
 </mule>

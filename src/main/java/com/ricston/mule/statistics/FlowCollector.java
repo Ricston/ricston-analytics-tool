@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.management.AttributeNotFoundException;
 import javax.management.InstanceNotFoundException;
 import javax.management.MBeanException;
+import javax.management.MBeanServerConnection;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectInstance;
 import javax.management.ObjectName;
@@ -25,7 +26,7 @@ public class FlowCollector extends AbstractCollector{
 	protected Set<String> exclude = Sets.newHashSet("Mule..agent", "Mule.default");
 	protected Map<String, Flow> oldStats = new HashMap<String, Flow>();
 	
-	protected List<String> applicationsToMonitor() throws IOException{
+	protected List<String> applicationsToMonitor(MBeanServerConnection mbeanServer) throws IOException{
 		String[] domains = mbeanServer.getDomains();
 		List<String> applications = new ArrayList<String>();
 		
@@ -39,19 +40,21 @@ public class FlowCollector extends AbstractCollector{
 	}
 	
 	@Override
-	public List<Flow> collect() throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	public List<Flow> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		
+		logger.debug("Collecting flow statistics");
 		List<Flow> stats = new ArrayList<Flow>();
-		List<String> applications = applicationsToMonitor();
+		List<String> applications = applicationsToMonitor(mbeanServer);
 		
 		for (String application : applications){
-			stats.addAll(collectFlowsStats(application));
+			stats.addAll(collectFlowsStats(mbeanServer, application));
 		}
 		
+		logger.debug("Collecting flow statistics complete");
 		return stats;
 	}
 	
-	protected List<Flow> collectFlowsStats(String application) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	protected List<Flow> collectFlowsStats(MBeanServerConnection mbeanServer, String application) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		List<Flow> stats = new ArrayList<Flow>();
 		
 		ObjectName objectName = new ObjectName(application + ":type=Flow,name=*");
@@ -60,14 +63,14 @@ public class FlowCollector extends AbstractCollector{
 		Set<ObjectInstance> flowObjectInstances = mbeanServer.queryMBeans(objectName, null);
 		
 		for (ObjectInstance flowObjectInstance : flowObjectInstances){
-			stats.add(collectStat(flowObjectInstance));
+			stats.add(collectStat(mbeanServer, flowObjectInstance));
 		}
 		
 		return stats;
 		
 	}
 	
-	protected Flow collectStat(ObjectInstance o) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException  {
+	protected Flow collectStat(MBeanServerConnection mbeanServer, ObjectInstance o) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException  {
 		Flow flow = new Flow();
 		
 		String flowName = (String)mbeanServer.getAttribute(o.getObjectName(), "Name");

@@ -23,7 +23,8 @@ import com.ricston.mule.statistics.model.Flow;
 
 public class FlowCollector extends AbstractCollector{
 	
-	protected Set<String> exclude = Sets.newHashSet("Mule..agent", "Mule.default");
+	protected final String APPLICATION_PREFIX = "Mule.";
+	protected Set<String> exclude = Sets.newHashSet(APPLICATION_PREFIX + ".agent", APPLICATION_PREFIX + "default");
 	protected Map<String, Flow> oldStats = new HashMap<String, Flow>();
 	
 	protected List<String> applicationsToMonitor(MBeanServerConnection mbeanServer) throws IOException{
@@ -31,7 +32,7 @@ public class FlowCollector extends AbstractCollector{
 		List<String> applications = new ArrayList<String>();
 		
 		for (String domain : domains){
-			if (StringUtils.startsWith(domain, "Mule.") && !exclude.contains(domain)){
+			if (StringUtils.startsWith(domain, APPLICATION_PREFIX) && !exclude.contains(domain)){
 				applications.add(domain);
 			}
 		}
@@ -63,19 +64,20 @@ public class FlowCollector extends AbstractCollector{
 		Set<ObjectInstance> flowObjectInstances = mbeanServer.queryMBeans(objectName, null);
 		
 		for (ObjectInstance flowObjectInstance : flowObjectInstances){
-			stats.add(collectStat(mbeanServer, flowObjectInstance));
+			stats.add(collectStat(mbeanServer, flowObjectInstance, application));
 		}
 		
 		return stats;
 		
 	}
 	
-	protected Flow collectStat(MBeanServerConnection mbeanServer, ObjectInstance o) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException  {
+	protected Flow collectStat(MBeanServerConnection mbeanServer, ObjectInstance o, String application) throws MalformedObjectNameException, IOException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException  {
 		Flow flow = new Flow();
 		
 		String flowName = (String)mbeanServer.getAttribute(o.getObjectName(), "Name");
 		
 		flow.setName(flowName);
+		flow.setApplication(StringUtils.remove(application, APPLICATION_PREFIX));
 		flow.setAsyncEventsReceived((Long)mbeanServer.getAttribute(o.getObjectName(), "AsyncEventsReceived"));
 		flow.setAverageProcessingTime((Long)mbeanServer.getAttribute(o.getObjectName(), "AverageProcessingTime"));
 		flow.setExecutionErrors((Long)mbeanServer.getAttribute(o.getObjectName(), "ExecutionErrors"));

@@ -3,6 +3,7 @@ package com.ricston.mule.statistics.model;
 
 public class Flow extends AbstractCollectorStatistics {
 
+	private String application;
 	private Long asyncEventsReceived;
 	private Long averageProcessingTime;
 	private Long executionErrors;
@@ -24,6 +25,14 @@ public class Flow extends AbstractCollectorStatistics {
 	
 	public Flow(){
 		super(StatisticsType.FLOW);
+	}
+
+	public String getApplication() {
+		return application;
+	}
+
+	public void setApplication(String application) {
+		this.application = application;
 	}
 
 	public Long getAsyncEventsReceived() {
@@ -174,13 +183,14 @@ public class Flow extends AbstractCollectorStatistics {
 			newTotalProcessingTime = totalProcessingTime;
 		}
 		else{
-			newAsyncEventsReceived = asyncEventsReceived - oldStatistics.asyncEventsReceived;
-			newExecutionErrors = executionErrors - oldStatistics.executionErrors;
-			newFatalErrors = fatalErrors - oldStatistics.fatalErrors;
-			newProcessedEvents = processedEvents - oldStatistics.processedEvents;
-			newSyncEventsReceived = syncEventsReceived - oldStatistics.syncEventsReceived;
-			newTotalEventsReceived = totalEventsReceived - oldStatistics.totalEventsReceived;
-			newTotalProcessingTime = totalProcessingTime - oldStatistics.totalProcessingTime;
+			//When application is restarted, statistics are lost. In this case, we default the result to zero rather than a negative value. 
+			newAsyncEventsReceived = Math.max(asyncEventsReceived - oldStatistics.asyncEventsReceived, 0);
+			newExecutionErrors = Math.max(executionErrors - oldStatistics.executionErrors, 0);
+			newFatalErrors = Math.max(fatalErrors - oldStatistics.fatalErrors, 0);
+			newProcessedEvents = Math.max(processedEvents - oldStatistics.processedEvents, 0);
+			newSyncEventsReceived = Math.max(syncEventsReceived - oldStatistics.syncEventsReceived, 0);
+			newTotalEventsReceived = Math.max(totalEventsReceived - oldStatistics.totalEventsReceived, 0);
+			newTotalProcessingTime = Math.max(totalProcessingTime - oldStatistics.totalProcessingTime, 0);
 		}
 	}
 	

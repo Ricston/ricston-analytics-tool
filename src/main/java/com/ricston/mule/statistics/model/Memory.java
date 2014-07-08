@@ -12,6 +12,10 @@ public class Memory extends AbstractCollectorStatistics {
 		super(StatisticsType.MEMORY);
 	}
 	
+	protected Memory(StatisticsType type){
+		super(type);
+	}
+	
 	public Long getCommitted() {
 		return committed;
 	}

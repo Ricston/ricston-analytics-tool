@@ -6,6 +6,7 @@ public enum StatisticsType {
 	MEMORY_POOL,
 	MEMORY,
 	OPERATING_SYSTEM,
-	FLOW;
+	FLOW,
+	THREAD;
 
 }

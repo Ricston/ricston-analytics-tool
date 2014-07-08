@@ -43,6 +43,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <flow-ref name="statistics-memory" doc:name="Memory"/>
             <flow-ref name="operating-system" doc:name="Operating System"/>
             <flow-ref name="flow" doc:name="Flow"/>
+            <flow-ref name="thread" doc:name="Thread"/>
         </scatter-gather>
         <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
         <logger message="Statistics collection complete" level="INFO" doc:name="Complete"/>
@@ -68,6 +69,11 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     
     <sub-flow name="operating-system" doc:name="operating-system">
         <component doc:name="OperatingSystem" class="com.ricston.mule.statistics.OperatingSystemCollector" />
+        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
+    </sub-flow>
+    
+    <sub-flow name="thread" doc:name="thread">
+        <component doc:name="Thread" class="com.ricston.mule.statistics.ThreadCollector" />
         <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
     </sub-flow>
     

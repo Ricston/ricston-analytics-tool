@@ -21,13 +21,13 @@ public class ThreadCollector extends AbstractCollector{
 	
 	@Override
 	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
-		logger.debug("Collecting memory statistics");
+		logger.debug("Collecting thread statistics");
 		List<AbstractCollectorStatistics> stats = new ArrayList<AbstractCollectorStatistics>();
 		
 		stats.addAll(collectThreadCountStat(mbeanServer));
 		stats.addAll(collectThreadCpuTimeStat(mbeanServer));
 		
-		logger.debug("Collecting memory statistics completed");
+		logger.debug("Collecting thread statistics completed");
 		return stats;
 	}
 	

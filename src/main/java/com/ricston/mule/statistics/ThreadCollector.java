@@ -13,32 +13,58 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
-import com.ricston.mule.statistics.model.Thread;
+import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
+import com.ricston.mule.statistics.model.ThreadCount;
+import com.ricston.mule.statistics.model.ThreadCpuTime;
 
 public class ThreadCollector extends AbstractCollector{
 	
 	@Override
-	public List<Thread> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting memory statistics");
-		List<Thread> stats = new ArrayList<Thread>();
+		List<AbstractCollectorStatistics> stats = new ArrayList<AbstractCollectorStatistics>();
 		
-		stats.add(collectStat(mbeanServer));
+		stats.addAll(collectThreadCountStat(mbeanServer));
+		stats.addAll(collectThreadCpuTimeStat(mbeanServer));
 		
 		logger.debug("Collecting memory statistics completed");
 		return stats;
 	}
 	
-	protected Thread collectStat(MBeanServerConnection mbeanServer) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+	protected List<ThreadCount> collectThreadCountStat(MBeanServerConnection mbeanServer) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		ObjectName objectName = new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME);
 		
-		Thread stat = new Thread();
-		stat.setName("Threading");
-		stat.setCurrentThreadCpuTime((Long)mbeanServer.getAttribute(objectName, "CurrentThreadCpuTime"));
-		stat.setCurrentThreadUserTime((Long)mbeanServer.getAttribute(objectName, "CurrentThreadUserTime"));
-		stat.setDaemonThreadCount((Integer)mbeanServer.getAttribute(objectName, "DaemonThreadCount"));
-		stat.setThreadCount((Integer)mbeanServer.getAttribute(objectName, "ThreadCount"));
+		List<ThreadCount> stats = new ArrayList<ThreadCount>();
 		
-		return stat;
+		ThreadCount stat = new ThreadCount();
+		stat.setName("ThreadCount");
+		stat.setThreadCount((Integer)mbeanServer.getAttribute(objectName, "ThreadCount"));
+		stats.add(stat);
+		
+		stat = new ThreadCount();
+		stat.setName("DaemonThreadCount");
+		stat.setThreadCount((Integer)mbeanServer.getAttribute(objectName, "DaemonThreadCount"));
+		stats.add(stat);
+		
+		return stats;
+	}
+	
+	protected List<ThreadCpuTime> collectThreadCpuTimeStat(MBeanServerConnection mbeanServer) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+		ObjectName objectName = new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME);
+		
+		List<ThreadCpuTime> stats = new ArrayList<ThreadCpuTime>();
+		
+		ThreadCpuTime stat = new ThreadCpuTime();
+		stat.setName("CurrentThreadCpuTime");
+		stat.setThreadCpuTime((Long)mbeanServer.getAttribute(objectName, "CurrentThreadCpuTime"));
+		stats.add(stat);
+		
+		stat = new ThreadCpuTime();
+		stat.setName("CurrentThreadUserTime");
+		stat.setThreadCpuTime((Long)mbeanServer.getAttribute(objectName, "CurrentThreadUserTime"));
+		stats.add(stat);
+		
+		return stats;
 	}
 
 }

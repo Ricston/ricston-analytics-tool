@@ -34,7 +34,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
                 <quartz:payload>generator</quartz:payload>
             </quartz:event-generator-job>
         </quartz:inbound-endpoint>
-        <logger message="Statistics collection kicked off" level="INFO" doc:name="Kicked Off"/>
+        <logger message="Statistics collection kicked off" level="DEBUG" category="com.ricston.mule.Flows" doc:name="Kicked Off"/>
         <expression-component doc:name="JMX Connect"><![CDATA[app.registry.jmxConnector.connect();]]></expression-component>
         <set-payload doc:name="MbeanServer" value="#[app.registry.jmxConnector.mbeanServer]"/>
         <scatter-gather doc:name="scatter-gather">
@@ -46,7 +46,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <flow-ref name="thread" doc:name="Thread"/>
         </scatter-gather>
         <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
-        <logger message="Statistics collection complete" level="INFO" doc:name="Complete"/>
+        <logger message="Statistics collection complete" level="DEBUG" category="com.ricston.mule.Flows" doc:name="Complete"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">
             <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
         </catch-exception-strategy>

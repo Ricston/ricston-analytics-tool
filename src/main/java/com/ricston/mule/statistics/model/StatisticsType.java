@@ -7,6 +7,7 @@ public enum StatisticsType {
 	MEMORY,
 	OPERATING_SYSTEM,
 	FLOW,
-	THREAD;
+	THREAD_COUNT,
+	THREAD_CPU_TIME;
 
 }

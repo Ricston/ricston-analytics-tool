@@ -13,29 +13,67 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
+import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
+import com.ricston.mule.statistics.model.CpuLoad;
 import com.ricston.mule.statistics.model.OperatingSystem;
+import com.ricston.mule.statistics.model.PhysicalMemory;
 
 public class OperatingSystemCollector extends AbstractCollector{
 	
 	@Override
-	public List<OperatingSystem> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting operating system statistics");
 		
-		List<OperatingSystem> stats = new ArrayList<OperatingSystem>();
+		List<AbstractCollectorStatistics> stats = new ArrayList<AbstractCollectorStatistics>();
 		
 		ObjectName objectName = new ObjectName(ManagementFactory.OPERATING_SYSTEM_MXBEAN_NAME);
 
 		OperatingSystem stat = new OperatingSystem();
 		stat.setName("OperatingSystem");
-		stat.setCommittedVirtualMemorySize((Long)mbeanServer.getAttribute(objectName, "CommittedVirtualMemorySize"));
-		stat.setFreePhysicalMemorySize((Long)mbeanServer.getAttribute(objectName, "FreePhysicalMemorySize"));
 		stat.setOpenFileDescriptorCount((Long)mbeanServer.getAttribute(objectName, "OpenFileDescriptorCount"));
-		stat.setProcessCpuLoad((Double)mbeanServer.getAttribute(objectName, "ProcessCpuLoad"));
-		stat.setSystemCpuLoad((Double)mbeanServer.getAttribute(objectName, "SystemCpuLoad"));
 		
 		stats.add(stat);
 		
+		stats.addAll(collectPhysicalMemoryStat(mbeanServer, objectName));
+		stats.addAll(collectCpuLoadStat(mbeanServer, objectName));
+		
 		logger.debug("Collecting operating system statistics completed");
+		return stats;
+		
+	}
+	
+	public List<CpuLoad> collectCpuLoadStat(MBeanServerConnection mbeanServer, ObjectName objectName) throws AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+		
+		List<CpuLoad> stats = new ArrayList<CpuLoad>();
+		
+		CpuLoad stat = new CpuLoad();
+		stat.setName("ProcessCpuLoad");
+		stat.setCpuLoad((Double)mbeanServer.getAttribute(objectName, "ProcessCpuLoad"));
+		stats.add(stat);
+		
+		stat = new CpuLoad();
+		stat.setName("SystemCpuLoad");
+		stat.setCpuLoad((Double)mbeanServer.getAttribute(objectName, "SystemCpuLoad"));
+		stats.add(stat);
+		
+		return stats;
+		
+	}
+	
+	public List<PhysicalMemory> collectPhysicalMemoryStat(MBeanServerConnection mbeanServer, ObjectName objectName) throws AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+		
+		List<PhysicalMemory> stats = new ArrayList<PhysicalMemory>();
+		
+		PhysicalMemory stat = new PhysicalMemory();
+		stat.setName("CommittedVirtualMemorySize");
+		stat.setMemorySize((Long)mbeanServer.getAttribute(objectName, "CommittedVirtualMemorySize"));
+		stats.add(stat);
+		
+		stat = new PhysicalMemory();
+		stat.setName("FreePhysicalMemorySize");
+		stat.setMemorySize((Long)mbeanServer.getAttribute(objectName, "FreePhysicalMemorySize"));
+		stats.add(stat);
+		
 		return stats;
 		
 	}

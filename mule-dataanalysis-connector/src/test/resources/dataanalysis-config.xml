@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:dataanalysis="http://www.mulesoft.org/schema/mule/dataanalysis"
+      xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/dataanalysis http://www.mulesoft.org/schema/mule/dataanalysis/1.0/mule-dataanalysis.xsd">
+
+    <dataanalysis:config name="dataAnalysisConfig" />
+
+    <flow name="testFlow">
+        <dataanalysis:collect-for-analysis kpiName="kpi1">
+        	<dataanalysis:data ref="#[['hello' : 'test']]" />
+        </dataanalysis:collect-for-analysis>
+    </flow>
+    
+    <flow name="testFlow2">
+        <dataanalysis:collect-for-analysis kpiName="kpi2">
+        	<dataanalysis:data>
+        		<dataanalysis:datum key="hello">test</dataanalysis:datum>
+        	</dataanalysis:data>
+        </dataanalysis:collect-for-analysis>
+    </flow>
+
+</mule>

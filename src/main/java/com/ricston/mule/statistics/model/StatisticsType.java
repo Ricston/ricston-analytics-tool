@@ -10,6 +10,7 @@ public enum StatisticsType {
 	THREAD_COUNT,
 	THREAD_CPU_TIME,
 	CPU_LOAD,
-	PHYSICAL_MEMORY;
+	PHYSICAL_MEMORY,
+	KPI;
 
 }

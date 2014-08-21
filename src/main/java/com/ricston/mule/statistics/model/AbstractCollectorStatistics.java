@@ -6,7 +6,7 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonAutoDetect
-public class AbstractCollectorStatistics {
+public abstract class AbstractCollectorStatistics {
 
 	private String name;
 	private StatisticsType type;

@@ -18,27 +18,11 @@ import javax.management.ReflectionException;
 
 import org.mule.util.StringUtils;
 
-import com.google.common.collect.Sets;
 import com.ricston.mule.statistics.model.Flow;
 
 public class FlowCollector extends AbstractCollector{
 	
-	protected final String APPLICATION_PREFIX = "Mule.";
-	protected Set<String> exclude = Sets.newHashSet(APPLICATION_PREFIX + ".agent", APPLICATION_PREFIX + "default");
 	protected Map<String, Flow> oldStats = new HashMap<String, Flow>();
-	
-	protected List<String> applicationsToMonitor(MBeanServerConnection mbeanServer) throws IOException{
-		String[] domains = mbeanServer.getDomains();
-		List<String> applications = new ArrayList<String>();
-		
-		for (String domain : domains){
-			if (StringUtils.startsWith(domain, APPLICATION_PREFIX) && !exclude.contains(domain)){
-				applications.add(domain);
-			}
-		}
-		
-		return applications;
-	}
 	
 	@Override
 	public List<Flow> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{

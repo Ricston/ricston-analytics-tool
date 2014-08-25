@@ -5,6 +5,8 @@
 
 package com.ricston.modules.dataanalysis;
 import java.io.File;
+import java.io.IOError;
+import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +27,8 @@ import javax.management.StandardMBean;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.cxf.helpers.FileUtils;
+import org.mule.util.FileUtils;
+import org.mule.util.UUID;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mule.api.MuleContext;
@@ -79,9 +82,10 @@ public class DataAnalysisModule implements DataAnalysisMBean
      * @throws NotCompliantMBeanException
      * @throws InstanceAlreadyExistsException
      * @throws MBeanRegistrationException
+     * @throws IOException 
      */
     @Start
-    public void startModule() throws MalformedObjectNameException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException{
+    public void startModule() throws MalformedObjectNameException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException, IOException{
     	application = muleContext.getConfiguration().getId();
     	
     	logger.info("**********************************");
@@ -121,21 +125,45 @@ public class DataAnalysisModule implements DataAnalysisMBean
     }
     
     /**
-     * Start the MapDb
+     * Create a database with all the necessary settings
+     * 
+     * @param dbFile File backing up the MapDb
+     * @return The MapDb
      */
-    private void startMapDb(){
+    protected DB makeDb(File dbFile){
+    	return DBMaker.newFileDB(dbFile)
+						.transactionDisable()
+						.asyncWriteEnable()
+						.commitFileSyncDisable()
+						.make();
+    }
+    
+    /**
+     * Start the MapDb
+     * @throws IOException 
+     */
+    private void startMapDb() throws IOException{
     	String workingDir = muleContext.getConfiguration().getWorkingDirectory();
     	String dbFolderPath = workingDir + "/dataanalysis/" + application;
     	String dbFilePath = dbFolderPath + "/mapdb.dat";
-    	FileUtils.mkDir(new File(dbFolderPath));
+    	FileUtils.forceMkdir(new File(dbFolderPath));
     	File dbFile = new File(dbFilePath);
     	
     	logger.info("Using " + dbFilePath + " as directory for analysis data persistency");
     	
-    	db = DBMaker.newFileDB(dbFile)
-    			.transactionDisable()
-    			.asyncWriteEnable()
-    			.make();
+    	//try to create the database
+    	try
+    	{
+	    	db = makeDb(dbFile);
+    	}
+    	catch (IOError exc){
+    		//if store was corrupted, back it up and create a new one
+    		if (exc.getMessage().contains("Wrong index checksum")){
+    			logger.error("Store is corrupted due to it not being properly closed. A backup will be taken and a new one will be created.");
+    			FileUtils.renameFile(dbFile, new File(dbFolderPath + "/" + UUID.getUUID()));  
+    			db = makeDb(dbFile);
+    		}
+    	}
     }
     
     /**
@@ -154,21 +182,23 @@ public class DataAnalysisModule implements DataAnalysisMBean
      *
      * {@sample.xml ../../../doc/dataanalysis-connector.xml.sample dataanalysis:collect-for-analysis}
      *
+     * @param kpiName name for the key performance indicator
      * @param data Key value pairs of data to collect
+     * @param the message id
      */
     @Processor
     public void collectForAnalysis(String kpiName, Map<String, Object> data, @Expr("#[message.id]")String messageId)
     {
-    	data.put("name", kpiName);
+    	data.put("kpiName", kpiName);
     	data.put("type", "KPI");
     	data.put("messageId", messageId);
     	data.put("application", application);
     	data.put("@timestamp", new Date());
     	
-    	BlockingQueue<Map<String, Object>> queue = db.getQueue(kpiName);
+    	BlockingQueue<Map<String, Object>> queue = db.getStack(kpiName);
     	queue.add(data);
     	
-    	db.commit();
+//    	db.commit();
     }
 
     /**
@@ -190,7 +220,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
 	}
 
 	/**
-	 * Take the data from the MapDb backed persited queue and return it as a List of Maps.
+	 * Take the data from the MapDb backed persisted queue and return it as a List of Maps.
 	 * The idea behind this method is that the statistics collector will poll this method
 	 * for data every couple of seconds.
 	 * 
@@ -209,7 +239,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
 			q.drainTo(items);
 		}
 		
-		db.commit();
+//		db.commit();
 		
 		return items;
 	}

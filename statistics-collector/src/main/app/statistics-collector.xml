@@ -44,6 +44,8 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <flow-ref name="thread" doc:name="Thread"/>
             <flow-ref name="kpi" doc:name="KPI"/>
         </scatter-gather>
+        <combine-collections-transformer doc:name="Combine Collections"/>
+        <flow-ref name="elasticsearch-stats" doc:name="Upload to Elastic Search"/>
         <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
         <logger message="Statistics collection complete" level="DEBUG" category="com.ricston.mule.Flows" doc:name="Complete"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">
@@ -52,17 +54,10 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     </flow>
     
     <sub-flow name="elasticsearch-stats" doc:name="elasticsearch-stats">
-        <choice doc:name="Choice">
-            <when expression="#[payload.size() != 0]">
-                <foreach doc:name="For Each">
-                    <set-variable variableName="type" value="#[payload.type.toString()]" doc:name="type"/>
-                    <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
-                    <http:outbound-endpoint exchange-pattern="one-way" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule-#[new org.mule.el.datetime.DateTime().format('yyyy.MM.dd')]/#[flowVars.type]" method="POST" doc:name="HTTP"/>
-                </foreach>
-            </when>
-            <otherwise>
-                <logger message="No data collected" level="DEBUG" doc:name="Logger"/>
-            </otherwise>
-        </choice>
+        <foreach doc:name="For Each">
+            <set-variable variableName="type" value="#[payload.type.toString()]" doc:name="type"/>
+            <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
+            <http:outbound-endpoint exchange-pattern="one-way" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule-#[new org.mule.el.datetime.DateTime().format('yyyy.MM.dd')]/#[flowVars.type]" method="POST" doc:name="HTTP"/>
+        </foreach>
     </sub-flow>
 </mule>

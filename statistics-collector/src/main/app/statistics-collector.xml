@@ -35,15 +35,15 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <logger message="Statistics collection kicked off" level="DEBUG" category="com.ricston.mule.Flows" doc:name="Kicked Off"/>
         <expression-component doc:name="JMX Connect"><![CDATA[app.registry.jmxConnector.connect();]]></expression-component>
         <set-payload doc:name="MbeanServer" value="#[app.registry.jmxConnector.mbeanServer]"/>
-<!--         <scatter-gather doc:name="scatter-gather"> -->
-<!--             <flow-ref name="statistics-garbadge" doc:name="Garbadge"/> -->
-<!--             <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/> -->
-<!--             <flow-ref name="statistics-memory" doc:name="Memory"/> -->
-<!--             <flow-ref name="operating-system" doc:name="Operating System"/> -->
-<!--             <flow-ref name="flow" doc:name="Flow"/> -->
-<!--             <flow-ref name="thread" doc:name="Thread"/> -->
+        <scatter-gather doc:name="scatter-gather">
+            <flow-ref name="statistics-garbadge" doc:name="Garbadge"/>
+            <flow-ref name="statistics-memory-pool" doc:name="Memory Pool"/>
+            <flow-ref name="statistics-memory" doc:name="Memory"/>
+            <flow-ref name="operating-system" doc:name="Operating System"/>
+            <flow-ref name="flow" doc:name="Flow"/>
+            <flow-ref name="thread" doc:name="Thread"/>
             <flow-ref name="kpi" doc:name="KPI"/>
-<!--         </scatter-gather> -->
+        </scatter-gather>
         <expression-component doc:name="JMX Close"><![CDATA[app.registry.jmxConnector.close();]]></expression-component>
         <logger message="Statistics collection complete" level="DEBUG" category="com.ricston.mule.Flows" doc:name="Complete"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">

@@ -51,41 +51,6 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         </catch-exception-strategy>
     </flow>
     
-    <sub-flow name="statistics-garbadge" doc:name="statistics-garbadge">
-        <component doc:name="Garbadge" class="com.ricston.mule.statistics.GarbadgeCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="statistics-memory" doc:name="statistics-memory">
-        <component doc:name="Memory" class="com.ricston.mule.statistics.MemoryCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="statistics-memory-pool" doc:name="statistics-memory-pool">
-        <component doc:name="MemoryPool" class="com.ricston.mule.statistics.MemoryPoolCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="operating-system" doc:name="operating-system">
-        <component doc:name="OperatingSystem" class="com.ricston.mule.statistics.OperatingSystemCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="thread" doc:name="thread">
-        <component doc:name="Thread" class="com.ricston.mule.statistics.ThreadCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="flow" doc:name="flow">
-        <component doc:name="Flow" class="com.ricston.mule.statistics.FlowCollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
-    <sub-flow name="kpi" doc:name="kpi">
-        <component doc:name="KPI" class="com.ricston.mule.statistics.KPICollector" />
-        <flow-ref name="elasticsearch-stats" doc:name="Elastic Search Upload"/>
-    </sub-flow>
-    
     <sub-flow name="elasticsearch-stats" doc:name="elasticsearch-stats">
         <choice doc:name="Choice">
             <when expression="#[payload.size() != 0]">

@@ -91,7 +91,6 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
             <when expression="#[payload.size() != 0]">
                 <foreach doc:name="For Each">
                     <set-variable variableName="type" value="#[payload.type.toString()]" doc:name="type"/>
-                    <logger message="data for type #[flowVars.type]" level="INFO" doc:name="Logger"/>
                     <json:object-to-json-transformer mapper-ref="objectMapper" doc:name="Object to JSON"/>
                     <http:outbound-endpoint exchange-pattern="one-way" host="${elasticsearch.host}" port="${elasticsearch.port}" path="mule-#[new org.mule.el.datetime.DateTime().format('yyyy.MM.dd')]/#[flowVars.type]" method="POST" doc:name="HTTP"/>
                 </foreach>

@@ -159,7 +159,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	catch (IOError exc){
     		//if store was corrupted, back it up and create a new one
     		if (exc.getMessage().contains("Wrong index checksum")){
-    			logger.error("Store is corrupted due to it not being properly closed. A backup will be taken and a new one will be created.");
+    			logger.error("Store is corrupted due to an incorrect shutdown. A backup of the current store will be taken, and a new store will be created.");
     			FileUtils.renameFile(dbFile, new File(dbFolderPath + "/" + UUID.getUUID()));  
     			db = makeDb(dbFile);
     		}

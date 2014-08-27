@@ -14,8 +14,9 @@
 		<jdkName>JavaSE-1.6</jdkName>
 		<jdk.version>1.6</jdk.version>
 		<junit.version>4.9</junit.version>
+		<spring.version>4.0.6.RELEASE</spring.version>
 	</properties>
-
+	
 	<!-- plugins for creating site reports -->
 	<reporting>
 		<plugins>
@@ -92,6 +93,11 @@
 	</reporting>
 
 	<dependencies>
+		<dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-context</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
     </dependencies>
 
 </project>

@@ -17,7 +17,6 @@ import org.apache.commons.logging.LogFactory;
 import org.mule.util.StringUtils;
 
 import com.google.common.collect.Sets;
-import com.ricston.mule.jmx.Connector;
 import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
 
 public abstract class AbstractCollector {
@@ -28,14 +27,6 @@ public abstract class AbstractCollector {
 	protected Log logger = LogFactory.getLog(getClass());
 
 	public abstract List<? extends AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException;
-	
-	public final List<? extends AbstractCollectorStatistics> connectCollectClose(Connector connector) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
-		connector.connect();
-		List<? extends AbstractCollectorStatistics> stats = collect(connector.getMbeanServer());
-		connector.close();
-		
-		return stats;
-	}
 	
 	protected List<String> applicationsToMonitor(MBeanServerConnection mbeanServer) throws IOException{
 		String[] domains = mbeanServer.getDomains();

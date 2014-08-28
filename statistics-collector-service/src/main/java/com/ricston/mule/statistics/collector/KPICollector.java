@@ -1,4 +1,4 @@
-package com.ricston.mule.statistics;
+package com.ricston.mule.statistics.collector;
 
 import java.io.IOException;
 import java.util.ArrayList;

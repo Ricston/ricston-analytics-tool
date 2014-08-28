@@ -1,21 +1,20 @@
 package com.ricston.mule.statistics.main;
 
-import java.io.IOException;
-
-import javax.management.AttributeNotFoundException;
-import javax.management.InstanceNotFoundException;
-import javax.management.MBeanException;
-import javax.management.MalformedObjectNameException;
-import javax.management.ReflectionException;
-
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.ricston.mule.jmx.Connector;
+
 public class Main {
 	
-	public static void main(String[] args) throws InterruptedException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
+	static protected Log logger = LogFactory.getLog(Main.class);
+	
+	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
-		System.out.println("Started Spring context");
+		Connector jmxConnector = context.getBean(Connector.class);
+		logger.info("Collector started. " + jmxConnector.toString());
 		//((ConfigurableApplicationContext)context).close();
 	}
 

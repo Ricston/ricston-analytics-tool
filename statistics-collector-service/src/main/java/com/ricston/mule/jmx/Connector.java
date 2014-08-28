@@ -122,5 +122,18 @@ public class Connector {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
+	@Override
+	public String toString() {
+		String jmxUrl;
+		if (StringUtils.isBlank(host)){
+			jmxUrl = "LOCALHOST";
+		}
+		else{
+			jmxUrl = String.format(JMX_URL, host, port, path);
+		}
+		
+		return "Jmx Connector configured for: " + jmxUrl;
+	}
 
 }

@@ -1,11 +1,13 @@
-package com.ricston.mule.json;
+package com.ricston.mule.statistics.json;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JacksonObjectMapper extends ObjectMapper{
 
     private static DateFormat getIso8601DateFormat(){

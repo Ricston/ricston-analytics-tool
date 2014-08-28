@@ -16,7 +16,8 @@ import javax.management.ObjectInstance;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
-import org.mule.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
+
 
 import com.ricston.mule.statistics.model.Flow;
 

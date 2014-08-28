@@ -12,9 +12,9 @@ import javax.management.MBeanServerConnection;
 import javax.management.MalformedObjectNameException;
 import javax.management.ReflectionException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mule.util.StringUtils;
 
 import com.google.common.collect.Sets;
 import com.ricston.mule.statistics.model.AbstractCollectorStatistics;

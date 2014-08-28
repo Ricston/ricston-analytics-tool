@@ -13,6 +13,7 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ReflectionException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -39,6 +40,11 @@ public abstract class AbstractCollector {
 		}
 		
 		return applications;
+	}
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 	
 

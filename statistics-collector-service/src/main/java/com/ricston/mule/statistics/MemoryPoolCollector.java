@@ -14,8 +14,11 @@ import javax.management.ObjectName;
 import javax.management.ReflectionException;
 import javax.management.openmbean.CompositeDataSupport;
 
+import org.springframework.stereotype.Component;
+
 import com.ricston.mule.statistics.model.MemoryPool;
 
+@Component
 public class MemoryPoolCollector extends AbstractCollector{
 	
 	@Override

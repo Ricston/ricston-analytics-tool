@@ -13,11 +13,14 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
+import org.springframework.stereotype.Component;
+
 import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
 import com.ricston.mule.statistics.model.CpuLoad;
 import com.ricston.mule.statistics.model.OperatingSystem;
 import com.ricston.mule.statistics.model.PhysicalMemory;
 
+@Component
 public class OperatingSystemCollector extends AbstractCollector{
 	
 	@Override

@@ -13,8 +13,11 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
+import org.springframework.stereotype.Component;
+
 import com.ricston.mule.statistics.model.KPI;
 
+@Component
 public class KPICollector extends AbstractCollector{
 	
 	private String MBEAN_NAME = "%s:type=com.ricston.dataanalysis,name=kpi";

@@ -17,10 +17,12 @@ import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 
 import com.ricston.mule.statistics.model.Flow;
 
+@Component
 public class FlowCollector extends AbstractCollector{
 	
 	protected Map<String, Flow> oldStats = new HashMap<String, Flow>();

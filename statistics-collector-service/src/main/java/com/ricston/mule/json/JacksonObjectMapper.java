@@ -1,4 +1,4 @@
-package com.ricston.mule.statistics.collector;
+package com.ricston.mule.json;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

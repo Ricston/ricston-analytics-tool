@@ -45,7 +45,6 @@ public class FlowCollector extends AbstractCollector{
 		
 		ObjectName objectName = new ObjectName(application + ":type=Flow,name=*");
 		
-		@SuppressWarnings("unchecked")
 		Set<ObjectInstance> flowObjectInstances = mbeanServer.queryMBeans(objectName, null);
 		
 		for (ObjectInstance flowObjectInstance : flowObjectInstances){

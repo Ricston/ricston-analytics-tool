@@ -10,8 +10,9 @@ import javax.management.MBeanException;
 import javax.management.MalformedObjectNameException;
 import javax.management.ReflectionException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -27,13 +28,24 @@ public class ScheduledTasks {
 	private Collector collector;
 	
 	@Autowired
-	private ApplicationContext context;
+	private ElasticSearchUpload elasticSearchUpload;
+	
+	protected Log logger = LogFactory.getLog(getClass());
 	
 	@Scheduled(cron="${cron}")
 	public void reportCurrentTime() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
 		
+		//collect data
 		Map<StatisticsType, List<? extends AbstractCollectorStatistics>> stats = collector.collectAllStatisticalData();
-		System.out.println("Stats size: " + stats.size() + " Stats: " + stats.toString());
+		
+		//upload data one at a time
+		//TODO: use elastic search bulk upload
+		for(Map.Entry<StatisticsType, List<? extends AbstractCollectorStatistics>> statList : stats.entrySet()){
+			for(AbstractCollectorStatistics stat : statList.getValue()){
+				elasticSearchUpload.uploadData(stat);
+			}
+		}
+		logger.info("Stats types: " + stats.size() + " Stats: " + stats.toString());
 	}
 
 	public Collector getCollector() {
@@ -44,12 +56,12 @@ public class ScheduledTasks {
 		this.collector = collector;
 	}
 
-	public ApplicationContext getContext() {
-		return context;
+	public ElasticSearchUpload getElasticSearchUpload() {
+		return elasticSearchUpload;
 	}
 
-	public void setContext(ApplicationContext context) {
-		this.context = context;
+	public void setElasticSearchUpload(ElasticSearchUpload elasticSearchUpload) {
+		this.elasticSearchUpload = elasticSearchUpload;
 	}
 
 }

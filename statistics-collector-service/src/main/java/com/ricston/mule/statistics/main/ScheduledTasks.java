@@ -29,7 +29,7 @@ public class ScheduledTasks {
 	@Autowired
 	private ApplicationContext context;
 	
-	@Scheduled(fixedRate=1000)
+	@Scheduled(cron="${cron}")
 	public void reportCurrentTime() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
 		
 		Map<StatisticsType, List<? extends AbstractCollectorStatistics>> stats = collector.collectAllStatisticalData();

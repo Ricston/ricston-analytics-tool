@@ -29,9 +29,7 @@
 							<mainClass>com.ricston.mule.statistics.main.Main</mainClass>
 						</manifest>
 					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<descriptor>assembly.xml</descriptor>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -21,7 +21,9 @@ public class Main {
 		Runtime.getRuntime().addShutdownHook(new Thread(){
 			@Override
 			public void run() {
+				logger.info("Shutting down");
 				((ConfigurableApplicationContext)context).close();
+				logger.info("Shut down complete");
 			}
 		});
 	}

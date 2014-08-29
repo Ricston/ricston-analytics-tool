@@ -1,0 +1,728 @@
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+wrapper  | JVM exited while loading the application.
+jvm 1    | Error: Could not find or load main class com.ricston.mule.statistics.main.Main
+wrapper  | Launching a JVM...
+wrapper  | JVM exited while loading the application.
+jvm 2    | Error: Could not find or load main class com.ricston.mule.statistics.main.Main
+wrapper  | INT trapped.  Shutting down.
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+wrapper  | JVM exited while loading the application.
+jvm 1    | Error: Could not find or load main class com.ricston.mule.statistics.main.Main
+wrapper  | INT trapped.  Shutting down.
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+wrapper  | JVM exited while loading the application.
+jvm 1    | Error: Could not find or load main class com.ricston.mule.statistics.main.Main
+wrapper  | INT trapped.  Shutting down.
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+wrapper  | JVM exited while loading the application.
+jvm 1    | Error: Could not find or load main class com.ricston.mule.statistics.main.Main
+wrapper  | INT trapped.  Shutting down.
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:20:11,290 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@330345ed: startup date [Fri Aug 29 17:20:11 CEST 2014]; root of context hierarchy
+wrapper  | INT trapped.  Shutting down.
+wrapper  | JVM exited unexpectedly while stopping the application.
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:20:23,563 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@73b829e7: startup date [Fri Aug 29 17:20:23 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:20:25,189 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$d8ccdc30] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:20:25,429 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost:1099/server
+wrapper  | INT trapped.  Shutting down.
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:20:25,802 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:20:25,802 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@73b829e7: startup date [Fri Aug 29 17:20:23 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:20:25,804 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:20:42,559 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1be3e4c5: startup date [Fri Aug 29 17:20:42 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:20:44,303 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$b0d8a2bb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:20:44,562 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost:1099/server
+jvm 1    | INFO  2014-08-29 17:20:45,481 [pool-1-thread-1] com.ricston.mule.statistics.schedule.CollectAndUpload: Stats types: 6 Stats: {MEMORY=[com.ricston.mule.statistics.model.Memory@56bcdae1, com.ricston.mule.statistics.model.Memory@8c61644], MEMORY_POOL=[com.ricston.mule.statistics.model.MemoryPool@4dfcedc, com.ricston.mule.statistics.model.MemoryPool@185d004, com.ricston.mule.statistics.model.MemoryPool@781bb763, com.ricston.mule.statistics.model.MemoryPool@63a5022f, com.ricston.mule.statistics.model.MemoryPool@66328ec4], FLOW=[com.ricston.mule.statistics.model.Flow@13b1a47, com.ricston.mule.statistics.model.Flow@4f3a2bf2, com.ricston.mule.statistics.model.Flow@741b4580, com.ricston.mule.statistics.model.Flow@2a70120d], OPERATING_SYSTEM=[com.ricston.mule.statistics.model.OperatingSystem@23b1293f, com.ricston.mule.statistics.model.PhysicalMemory@440af967, com.ricston.mule.statistics.model.PhysicalMemory@2c7bfc17, com.ricston.mule.statistics.model.CpuLoad@7fe360d1, com.ricston.mule.statistics.model.CpuLoad@28e97aef], GARBADGE_COLLECTOR=[com.ricston.mule.statistics.model.Garbadge@7885f5e4, com.ricston.mule.statistics.model.Garbadge@22d2898d], THREAD_COUNT=[com.ricston.mule.statistics.model.ThreadCount@2c4499d7, com.ricston.mule.statistics.model.ThreadCount@4bd008f5, com.ricston.mule.statistics.model.ThreadCpuTime@46fc33b5, com.ricston.mule.statistics.model.ThreadCpuTime@57a6d47b]}
+jvm 1    | INFO  2014-08-29 17:20:46,126 [pool-1-thread-1] com.ricston.mule.statistics.schedule.CollectAndUpload: Stats types: 6 Stats: {MEMORY=[com.ricston.mule.statistics.model.Memory@519974bd, com.ricston.mule.statistics.model.Memory@31bf4e25], MEMORY_POOL=[com.ricston.mule.statistics.model.MemoryPool@6a378a7, com.ricston.mule.statistics.model.MemoryPool@56461f58, com.ricston.mule.statistics.model.MemoryPool@15b3f6a8, com.ricston.mule.statistics.model.MemoryPool@5a069ab9, com.ricston.mule.statistics.model.MemoryPool@679815db], FLOW=[com.ricston.mule.statistics.model.Flow@31c311ff, com.ricston.mule.statistics.model.Flow@7dd295de, com.ricston.mule.statistics.model.Flow@c6d625b, com.ricston.mule.statistics.model.Flow@61544abc], OPERATING_SYSTEM=[com.ricston.mule.statistics.model.OperatingSystem@64f6ae8f, com.ricston.mule.statistics.model.PhysicalMemory@7f3e6211, com.ricston.mule.statistics.model.PhysicalMemory@58988b5a, com.ricston.mule.statistics.model.CpuLoad@6e4ef27, com.ricston.mule.statistics.model.CpuLoad@2010ecfa], GARBADGE_COLLECTOR=[com.ricston.mule.statistics.model.Garbadge@37362188, com.ricston.mule.statistics.model.Garbadge@42d38409], THREAD_COUNT=[com.ricston.mule.statistics.model.ThreadCount@4c818d25, com.ricston.mule.statistics.model.ThreadCount@4d599f60, com.ricston.mule.statistics.model.ThreadCpuTime@36ee7f4c, com.ricston.mule.statistics.model.ThreadCpuTime@63e772c0]}
+wrapper  | INT trapped.  Shutting down.
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:20:46,767 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:20:46,768 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@1be3e4c5: startup date [Fri Aug 29 17:20:42 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:20:46,770 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:20:58,456 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:20:58 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:21:00,081 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$1c22e3e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:21:00,349 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost2343:1099/server
+jvm 1    | ERROR 2014-08-29 17:21:01,156 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+wrapper  | INT trapped.  Shutting down.
+jvm 1    | ERROR 2014-08-29 17:21:02,002 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+jvm 1    | INFO  2014-08-29 17:21:02,013 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:21:02,013 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:20:58 CEST 2014]; root of context hierarchy
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:21:02,015 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:22:42,962 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:22:42 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:22:44,671 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$1c22e3e9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:22:44,934 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost2343:1099/server
+jvm 1    | ERROR 2014-08-29 17:22:45,023 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+jvm 1    | ERROR 2014-08-29 17:22:46,001 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+jvm 1    | ERROR 2014-08-29 17:22:47,001 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+wrapper  | INT trapped.  Shutting down.
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:22:47,225 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:22:47,225 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:22:42 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:22:47,227 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:22:53,874 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:22:53 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:22:55,493 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$7dec5c14] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:22:55,757 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost2343:1099/server
+jvm 1    | ERROR 2014-08-29 17:22:56,027 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+wrapper  | INT trapped.  Shutting down.
+jvm 1    | ERROR 2014-08-29 17:22:57,002 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+jvm 1    | INFO  2014-08-29 17:22:57,031 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:22:57,031 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@3fc7380b: startup date [Fri Aug 29 17:22:53 CEST 2014]; root of context hierarchy
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:22:57,033 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:23:33,111 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@30307ae3: startup date [Fri Aug 29 17:23:33 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:23:34,864 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$b6b2fa38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:23:35,125 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost2343:1099/server
+jvm 1    | ERROR 2014-08-29 17:23:36,026 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+wrapper  | INT trapped.  Shutting down.
+jvm 1    | ERROR 2014-08-29 17:23:37,002 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+jvm 1    | INFO  2014-08-29 17:23:37,098 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:23:37,099 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@30307ae3: startup date [Fri Aug 29 17:23:33 CEST 2014]; root of context hierarchy
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:23:37,100 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped
+wrapper  | Unable to write to the configured log directory: ../logs (No such file or directory)
+wrapper  |   The directory does not exist.
+wrapper  | Unable to write to the configured log file: ../logs/wrapper.log (No such file or directory)
+wrapper  |   Falling back to the default file in the current working directory: wrapper.log
+wrapper  | --> Wrapper Started as Console
+wrapper  | Java Service Wrapper Community Edition 64-bit 3.5.25
+wrapper  |   Copyright (C) 1999-2014 Tanuki Software, Ltd. All Rights Reserved.
+wrapper  |     http://wrapper.tanukisoftware.com
+wrapper  | 
+wrapper  | Launching a JVM...
+jvm 1    | INFO  2014-08-29 17:23:43,548 [main] org.springframework.context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@73b829e7: startup date [Fri Aug 29 17:23:43 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:23:45,721 [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.scheduling.annotation.SchedulingConfiguration' of type [class org.springframework.scheduling.annotation.SchedulingConfiguration$$EnhancerBySpringCGLIB$$7dec5c14] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+jvm 1    | INFO  2014-08-29 17:23:45,986 [main] com.ricston.mule.statistics.main.Main: Collector started. Jmx Connector configured for: service:jmx:rmi:///jndi/rmi://localhost2343:1099/server
+jvm 1    | ERROR 2014-08-29 17:23:46,025 [pool-1-thread-1] org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler: Unexpected error occurred in scheduled task.
+jvm 1    | java.io.IOException: Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:369)
+jvm 1    | 	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:268)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connectToRemoteMBeanServer(Connector.java:70)
+jvm 1    | 	at com.ricston.mule.jmx.Connector.connect(Connector.java:36)
+jvm 1    | 	at com.ricston.mule.statistics.main.Collector.collectAllStatisticalData(Collector.java:38)
+jvm 1    | 	at com.ricston.mule.statistics.schedule.CollectAndUpload.collectAndUpload(CollectAndUpload.java:41)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+jvm 1    | 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+jvm 1    | 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+jvm 1    | 	at java.lang.reflect.Method.invoke(Method.java:606)
+jvm 1    | 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:65)
+jvm 1    | 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+jvm 1    | 	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:81)
+jvm 1    | 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+jvm 1    | 	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+jvm 1    | 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+jvm 1    | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+jvm 1    | 	at java.lang.Thread.run(Thread.java:744)
+jvm 1    | Caused by: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343]
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:118)
+jvm 1    | 	at com.sun.jndi.toolkit.url.GenericURLContext.lookup(GenericURLContext.java:203)
+jvm 1    | 	at javax.naming.InitialContext.lookup(InitialContext.java:411)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServerJNDI(RMIConnector.java:1936)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.findRMIServer(RMIConnector.java:1903)
+jvm 1    | 	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:286)
+jvm 1    | 	... 19 more
+jvm 1    | Caused by: java.rmi.UnknownHostException: Unknown host: localhost2343; nested exception is: 
+jvm 1    | 	java.net.UnknownHostException: localhost2343
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:616)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+jvm 1    | 	at sun.rmi.server.UnicastRef.newCall(UnicastRef.java:341)
+jvm 1    | 	at sun.rmi.registry.RegistryImpl_Stub.lookup(Unknown Source)
+jvm 1    | 	at com.sun.jndi.rmi.registry.RegistryContext.lookup(RegistryContext.java:114)
+jvm 1    | 	... 24 more
+jvm 1    | Caused by: java.net.UnknownHostException: localhost2343
+jvm 1    | 	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:178)
+jvm 1    | 	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:579)
+jvm 1    | 	at java.net.Socket.connect(Socket.java:528)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:425)
+jvm 1    | 	at java.net.Socket.<init>(Socket.java:208)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+jvm 1    | 	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:147)
+jvm 1    | 	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+jvm 1    | 	... 29 more
+wrapper  | INT trapped.  Shutting down.
+wrapper  | JVM exited unexpectedly while stopping the application.
+jvm 1    | INFO  2014-08-29 17:23:46,906 [Thread-0] com.ricston.mule.statistics.main.Main: Shutting down
+jvm 1    | INFO  2014-08-29 17:23:46,906 [Thread-0] org.springframework.context.support.ClassPathXmlApplicationContext: Closing org.springframework.context.support.ClassPathXmlApplicationContext@73b829e7: startup date [Fri Aug 29 17:23:43 CEST 2014]; root of context hierarchy
+jvm 1    | INFO  2014-08-29 17:23:46,908 [Thread-0] com.ricston.mule.statistics.main.Main: Shut down complete
+wrapper  | <-- Wrapper Stopped

@@ -1,4 +1,4 @@
-package com.ricston.mule.statistics.main;
+package com.ricston.mule.statistics.schedule;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +17,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.ricston.mule.statistics.main.Collector;
+import com.ricston.mule.statistics.main.ElasticSearchUpload;
 import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
 import com.ricston.mule.statistics.model.StatisticsType;
 

@@ -22,7 +22,7 @@ import com.ricston.mule.statistics.model.StatisticsType;
 
 @Component
 @EnableScheduling
-public class ScheduledTasks {
+public class CollectAndUpload {
 
 	@Autowired
 	private Collector collector;
@@ -33,7 +33,7 @@ public class ScheduledTasks {
 	protected Log logger = LogFactory.getLog(getClass());
 	
 	@Scheduled(cron="${cron}")
-	public void reportCurrentTime() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
+	public void collectAndUpload() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
 		
 		//collect data
 		Map<StatisticsType, List<? extends AbstractCollectorStatistics>> stats = collector.collectAllStatisticalData();

@@ -1,4 +1,4 @@
-package com.ricston.mule.statistics.main;
+package com.ricston.mule.statistics.json;
 
 import java.io.IOException;
 

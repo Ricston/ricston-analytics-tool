@@ -7,9 +7,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<context:property-placeholder location="classpath:collector.properties"/>
 
 	<!-- Enable autowiring -->
-	<context:component-scan base-package="com.ricston.mule.statistics" />
+	<context:component-scan base-package="com.ricston.statistics" />
 	
-	<bean id="jmxConnector" class="com.ricston.mule.jmx.Connector">
+	<bean id="jmxConnector" class="com.ricston.statistics.jmx.Connector">
 		<property name="host" value="${jmx.host}"/>
 		<property name="port" value="${jmx.port}"/>
 		<property name="path" value="${jmx.path}"/>

@@ -23,7 +23,7 @@ set _WRAPPER_BASE=wrapper
 rem The directory where the Wrapper binary (.exe) file is located, this can be
 rem either a absolute or relative path. If the path contains any special characters, 
 rem please make sure to quote the variable. 
-set _WRAPPER_DIR=./wrapper
+set _WRAPPER_DIR=.\wrapper
 
 rem The name and location of the Wrapper configuration file.   This will be used
 rem  if the user does not specify a configuration file as the first parameter to
@@ -31,7 +31,7 @@ rem  this script.  It will not be possible to specify a configuration file on th
 rem  command line if _PASS_THROUGH is set. 
 rem If a relative path is specified, please note that the location is based on the 
 rem location.
-set _WRAPPER_CONF_DEFAULT=../conf/wrapper.conf
+set _WRAPPER_CONF_DEFAULT=..\..\conf\wrapper.conf
 
 rem Makes it possible to override the Wrapper configuration file by specifying it
 rem  as the first parameter.
@@ -84,7 +84,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="IA64" goto ia64
 set _WRAPPER_L_EXE="%_REALPATH:"=%%_WRAPPER_BASE%-windows-x86-32.exe"
 goto search
 :amd64
-set _WRAPPER_L_EXE="%_REALPATH:"=%%_WRAPPER_BASE%-windows-x86-64.exe"
+set _WRAPPER_L_EXE="%_REALPATH:"=%%_WRAPPER_BASE%-windows-x86-32.exe"
 goto search
 :ia64
 set _WRAPPER_L_EXE="%_REALPATH:"=%%_WRAPPER_BASE%-windows-ia-64.exe"

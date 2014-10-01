@@ -17,9 +17,16 @@ import org.springframework.stereotype.Component;
 
 import com.ricston.mule.statistics.model.Garbadge;
 
+/**
+ * Collect garbage collector statistics. This collector is stateless.
+ *
+ */
 @Component
 public class GarbadgeCollector extends AbstractCollector{
 	
+	/**
+	 * Collect statistics for PS Mark Sweep and PS Scavenge
+	 */
 	@Override
 	public List<Garbadge> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting garbadge collector statistics");
@@ -32,6 +39,19 @@ public class GarbadgeCollector extends AbstractCollector{
 		return stats;
 	}
 	
+	/**
+	 * Collect collection time and count for the collector (PS MarkSwep or PS Scavenge) 
+	 * 
+	 * @param mbeanServer The MBean server
+	 * @param collectorName The collector 
+	 * @return Returns Garbage collector statistics
+	 * @throws MalformedObjectNameException
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	protected Garbadge collectStat(MBeanServerConnection mbeanServer, String collectorName) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		
 		ObjectName objectName = new ObjectName(ManagementFactory.GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE + ",name=" + collectorName);

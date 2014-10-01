@@ -20,9 +20,16 @@ import com.ricston.mule.statistics.model.CpuLoad;
 import com.ricston.mule.statistics.model.OperatingSystem;
 import com.ricston.mule.statistics.model.PhysicalMemory;
 
+/**
+ * Collect operating system statistics. This collector is stateless.
+ *
+ */
 @Component
 public class OperatingSystemCollector extends AbstractCollector{
 	
+	/**
+	 * Collect statistics for different operating system features
+	 */
 	@Override
 	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting operating system statistics");
@@ -45,6 +52,18 @@ public class OperatingSystemCollector extends AbstractCollector{
 		
 	}
 	
+	/**
+	 * Collect CPU load statistics
+	 * 
+	 * @param mbeanServer The MBean Server
+	 * @param objectName The operating system mbean name
+	 * @return List of CPU load statistics
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	public List<CpuLoad> collectCpuLoadStat(MBeanServerConnection mbeanServer, ObjectName objectName) throws AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		
 		List<CpuLoad> stats = new ArrayList<CpuLoad>();
@@ -63,6 +82,17 @@ public class OperatingSystemCollector extends AbstractCollector{
 		
 	}
 	
+	/**
+	 * Collect physical memory statistics
+	 * @param mbeanServer The MBean server
+	 * @param objectName The operating system mbean name
+	 * @return List of Physical Memory statistics
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	public List<PhysicalMemory> collectPhysicalMemoryStat(MBeanServerConnection mbeanServer, ObjectName objectName) throws AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		
 		List<PhysicalMemory> stats = new ArrayList<PhysicalMemory>();

@@ -18,9 +18,16 @@ import org.springframework.stereotype.Component;
 
 import com.ricston.mule.statistics.model.MemoryPool;
 
+/**
+ * Collect memory pool statistics. This collector is stateless.
+ *
+ */
 @Component
 public class MemoryPoolCollector extends AbstractCollector{
 	
+	/**
+	 * Collect statistics for different memory pools
+	 */
 	@Override
 	public List<MemoryPool> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting memory pool statistics");
@@ -38,6 +45,19 @@ public class MemoryPoolCollector extends AbstractCollector{
 		
 	}
 	
+	/**
+	 * Collect statistics for an individual memory pool
+	 * 
+	 * @param mbeanServer The MBean server
+	 * @param collectorName The memory pool
+	 * @return List of Memory Pool statistics
+	 * @throws MalformedObjectNameException
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	protected MemoryPool collectStat(MBeanServerConnection mbeanServer, String collectorName) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		ObjectName objectName = new ObjectName(ManagementFactory.MEMORY_POOL_MXBEAN_DOMAIN_TYPE + ",name=" + collectorName);
 		

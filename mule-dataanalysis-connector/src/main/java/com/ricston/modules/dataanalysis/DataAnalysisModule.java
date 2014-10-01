@@ -97,7 +97,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
 		StandardMBean mbean = new StandardMBean(this, DataAnalysisMBean.class);
 		server.registerMBean(mbean, id);
 		
-		logger.info("Registered with mbean using name: " + String.format(MBEAN_NAME, application));
+		logger.info("Registered mbean using name: " + String.format(MBEAN_NAME, application));
 		
 		startMapDb();
     }
@@ -198,7 +198,6 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	BlockingQueue<Map<String, Object>> queue = db.getStack(kpiName);
     	queue.add(data);
     	
-//    	db.commit();
     }
 
     /**
@@ -227,7 +226,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
 	 */
 	@Override
 	public List<Map<String,Object>> getData() {
-		logger.info("Retreiving analysis data");
+		logger.debug("Retrieving analysis data");
 		
 		Map<String, Object > all = db.getAll();
 		
@@ -239,7 +238,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
 			q.drainTo(items);
 		}
 		
-//		db.commit();
+		logger.debug("Retrieving complete with total elements: " + items.size());
 		
 		return items;
 	}

@@ -26,14 +26,35 @@ import com.ricston.mule.statistics.model.StatisticsType;
 @EnableScheduling
 public class CollectAndUpload {
 
+	/**
+	 * Collector instance to collect statistics
+	 */
 	@Autowired
 	private Collector collector;
 	
+	/**
+	 * Helper class to upload statistics to Elastic Search
+	 */
 	@Autowired
 	private ElasticSearchUpload elasticSearchUpload;
 	
+	/**
+	 * Logger
+	 */
 	protected Log logger = LogFactory.getLog(getClass());
 	
+	/**
+	 * Main method called by the scheduler. This method first collects all the statistics using the 
+	 * autowired collector, and then uploads all the data to Elastic Search using the autowired
+	 * Elastic Search upload helper.
+	 * 
+	 * @throws MalformedObjectNameException
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	@Scheduled(cron="${cron}")
 	public void collectAndUpload() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException {
 		
@@ -45,22 +66,41 @@ public class CollectAndUpload {
 			elasticSearchUpload.uploadBulkData(statList.getKey(), statList.getValue());
 		}
 		
-		logger.info("Stats types: " + stats.size());
-		logger.debug("Stats: " + stats.toString());
+		logger.info("Stats types collected: " + stats.size());
+		
+		if (logger.isDebugEnabled()){
+			logger.debug("Stats: " + stats.toString());
+		}
 	}
 
+	/**
+	 * 
+	 * @return The statistics collector
+	 */
 	public Collector getCollector() {
 		return collector;
 	}
 
+	/**
+	 * 
+	 * @param collector The statistics collector
+	 */
 	public void setCollector(Collector collector) {
 		this.collector = collector;
 	}
 
+	/**
+	 * 
+	 * @return The Elastic Search upload helper
+	 */
 	public ElasticSearchUpload getElasticSearchUpload() {
 		return elasticSearchUpload;
 	}
 
+	/**
+	 * 
+	 * @param elasticSearchUpload The Elastic Search upload helper
+	 */
 	public void setElasticSearchUpload(ElasticSearchUpload elasticSearchUpload) {
 		this.elasticSearchUpload = elasticSearchUpload;
 	}

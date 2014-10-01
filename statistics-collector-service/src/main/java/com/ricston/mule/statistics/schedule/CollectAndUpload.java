@@ -40,14 +40,13 @@ public class CollectAndUpload {
 		//collect data
 		Map<StatisticsType, List<? extends AbstractCollectorStatistics>> stats = collector.collectAllStatisticalData();
 		
-		//upload data one at a time
-		//TODO: use elastic search bulk upload
+		//upload in bulk for each type
 		for(Map.Entry<StatisticsType, List<? extends AbstractCollectorStatistics>> statList : stats.entrySet()){
-			for(AbstractCollectorStatistics stat : statList.getValue()){
-				elasticSearchUpload.uploadData(stat);
-			}
+			elasticSearchUpload.uploadBulkData(statList.getKey(), statList.getValue());
 		}
-		logger.info("Stats types: " + stats.size() + " Stats: " + stats.toString());
+		
+		logger.info("Stats types: " + stats.size());
+		logger.debug("Stats: " + stats.toString());
 	}
 
 	public Collector getCollector() {

@@ -1,8 +1,10 @@
 package com.ricston.mule.statistics.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonAnyGetter;
+import org.codehaus.jackson.annotate.JsonAnySetter;
 
 public class KPI extends AbstractCollectorStatistics {
 	
@@ -10,6 +12,7 @@ public class KPI extends AbstractCollectorStatistics {
 
 	public KPI() {
 		super(StatisticsType.KPI);
+		kpis = new HashMap<String, Object>();
 	}
 	
 	public KPI(Map<String, Object> kpis) {
@@ -24,6 +27,11 @@ public class KPI extends AbstractCollectorStatistics {
 
 	public void setKpis(Map<String, Object> kpis) {
 		this.kpis = kpis;
+	}
+	
+	@JsonAnySetter
+	public void setAnyField(String key, Object value){
+		this.kpis.put(key, value);
 	}
 
 }

@@ -4,12 +4,12 @@ package com.ricston.mule.statistics.model;
  * Statistics for gabage collector
  *
  */
-public class Garbadge extends AbstractCollectorStatistics {
+public class Garbage extends AbstractCollectorStatistics {
 
 	private Long collectionCount;
 	private Long collectionTime;
 	
-	public Garbadge(){
+	public Garbage(){
 		super(StatisticsType.GARBADGE_COLLECTOR);
 	}
 	

@@ -15,22 +15,22 @@ import javax.management.ReflectionException;
 
 import org.springframework.stereotype.Component;
 
-import com.ricston.mule.statistics.model.Garbadge;
+import com.ricston.mule.statistics.model.Garbage;
 
 /**
  * Collect garbage collector statistics. This collector is stateless.
  *
  */
 @Component
-public class GarbadgeCollector extends AbstractCollector{
+public class GarbageCollector extends AbstractCollector{
 	
 	/**
 	 * Collect statistics for PS Mark Sweep and PS Scavenge
 	 */
 	@Override
-	public List<Garbadge> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	public List<Garbage> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting garbadge collector statistics");
-		List<Garbadge> stats = new ArrayList<Garbadge>();
+		List<Garbage> stats = new ArrayList<Garbage>();
 		
 		stats.add(collectStat(mbeanServer, "PS MarkSweep"));
 		stats.add(collectStat(mbeanServer, "PS Scavenge"));
@@ -52,11 +52,11 @@ public class GarbadgeCollector extends AbstractCollector{
 	 * @throws ReflectionException
 	 * @throws IOException
 	 */
-	protected Garbadge collectStat(MBeanServerConnection mbeanServer, String collectorName) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
+	protected Garbage collectStat(MBeanServerConnection mbeanServer, String collectorName) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		
 		ObjectName objectName = new ObjectName(ManagementFactory.GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE + ",name=" + collectorName);
 		
-		Garbadge stat = new Garbadge();
+		Garbage stat = new Garbage();
 		stat.setName(collectorName);
 		stat.setCollectionCount((Long) mbeanServer.getAttribute(objectName, "CollectionCount"));
 		stat.setCollectionTime((Long) mbeanServer.getAttribute(objectName, "CollectionTime"));

@@ -11,15 +11,25 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<jdkName>JavaSE-1.6</jdkName>
-		<jdk.version>1.6</jdk.version>
+		<!-- JDK Version -->
+		<jdkName>JavaSE-1.7</jdkName>
+		<jdk.version>1.7</jdk.version>
+		
+		<!-- Dependency versions -->
 		<junit.version>4.9</junit.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<jackson.version>1.9.13</jackson.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<httpclient.version>4.3.5</httpclient.version>
+		<commonslang.version>3.3.2</commonslang.version>
+		<guava.version>17.0</guava.version>
 	</properties>
 
 	<build>
+		
 		<plugins>
+			<!-- Assembly to package the project with Tanuki Wrapper -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4.1</version>
@@ -33,6 +43,21 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!-- Compiler plugin to set compilation settings -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<compilerVersion>${jdk.version}</compilerVersion>					
+					</configuration>
+				</plugin>
+			</plugins>
+	    </pluginManagement>
 	</build>
 	
 	<!-- plugins for creating site reports -->
@@ -111,46 +136,51 @@
 	</reporting>
 
 	<dependencies>
+		<!-- Spring dependency -->
 		<dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-context</artifactId>
 	        <version>${spring.version}</version>
 	    </dependency>
 	    
+	    <!-- Jackson dependency -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>17.0</version>
-		</dependency>
-		
+		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
+			<version>${slf4j.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 		</dependency>
 		
+		<!-- HTTP Client -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.3.5</version>
+			<version>${httpclient.version}</version>
+		</dependency>
+		
+		<!-- Others -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commonslang.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 
     </dependencies>

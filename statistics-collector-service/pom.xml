@@ -40,7 +40,17 @@
 						</manifest>
 					</archive>
 					<descriptor>assembly.xml</descriptor>
+					<appendAssemblyId>false</appendAssemblyId>
+					<finalName>${artifactId}-${version}</finalName>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<pluginManagement>

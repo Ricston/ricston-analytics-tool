@@ -12,20 +12,52 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ * JMX Connector class used to create connections to either
+ * a local JVM or to a remote JVM 
+ *
+ */
 public class Connector {
 	
+	/**
+	 * Represents the connection to the MBean server
+	 */
 	protected MBeanServerConnection mbeanServer;
+	
+	/**
+	 * The JMX Connector used to create the connection
+	 */
 	protected JMXConnector jmxConnector;
 	
+	/**
+	 * JMX URL template with place holders for host, port, and path
+	 */
 	protected final String JMX_URL = "service:jmx:rmi:///jndi/rmi://%s:%d/%s";
 	
+	/**
+	 * JMX host to connect to
+	 */
 	private String host;
+	
+	/**
+	 * JMX port to connect to
+	 */
 	private Integer port;
+	
+	/**
+	 * JMX path to connect to
+	 */
 	private String path;
 	
+	/**
+	 * Logger
+	 */
 	protected Log logger = LogFactory.getLog(getClass());
 
 	/**
+	 * Connect to JMX server. Try a local connection is host is empty,
+	 * otherwise try a remote connection
+	 * 
 	 * @throws IOException
 	 */
 	public void connect() throws IOException{
@@ -38,6 +70,8 @@ public class Connector {
 	}
 	
 	/**
+	 * Close the current JMX connection
+	 * 
 	 * @throws IOException
 	 */
 	public void close() throws IOException{
@@ -51,7 +85,9 @@ public class Connector {
 	}
 	
 	/**
-	 * @return
+	 * Connects to the local JVM's MBean server
+	 * 
+	 * @return Connection to MBean server
 	 */
 	protected MBeanServerConnection connectToLocalMBeanServer(){
 		logger.debug("Connecting to local MBean server");
@@ -59,7 +95,9 @@ public class Connector {
 	}
 	
 	/**
-	 * @return
+	 * Connects to the remote JVM's MBean server
+	 * 
+	 * @return Connection to MBean server
 	 * @throws IOException
 	 */
 	protected MBeanServerConnection connectToRemoteMBeanServer() throws IOException{
@@ -75,54 +113,58 @@ public class Connector {
 
 	/**
 	 * 
-	 * @return
+	 * @return Connection to MBean server
 	 */
 	public MBeanServerConnection getMbeanServer() {
 		return mbeanServer;
 	}
 
 	/**
-	 * @return
+	 * @return The host of the JMX connection
 	 */
 	public String getHost() {
 		return host;
 	}
 
 	/**
-	 * @param host
+	 * @param host The host of the JMX connection
 	 */
 	public void setHost(String host) {
 		this.host = host;
 	}
 
 	/**
-	 * @return
+	 * @return The port of the JMX connection
 	 */
 	public Integer getPort() {
 		return port;
 	}
 
 	/**
-	 * @param port
+	 * @param port The port of the JMX connection
 	 */
 	public void setPort(Integer port) {
 		this.port = port;
 	}
 
 	/**
-	 * @return
+	 * @return The path of the JMX connection
 	 */
 	public String getPath() {
 		return path;
 	}
 
 	/**
-	 * @param path
+	 * @param path The path of the JMX connection
 	 */
 	public void setPath(String path) {
 		this.path = path;
 	}
 	
+	/**
+	 * Writes a nicely formatted string explaining to where the JMX 
+	 * connection was made
+	 */
 	@Override
 	public String toString() {
 		String jmxUrl;

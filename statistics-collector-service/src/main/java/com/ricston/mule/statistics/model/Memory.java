@@ -1,6 +1,10 @@
 package com.ricston.mule.statistics.model;
 
 
+/**
+ * Statistics for memory
+ *
+ */
 public class Memory extends AbstractCollectorStatistics {
 
 	private Long committed;

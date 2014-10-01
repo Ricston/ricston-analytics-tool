@@ -19,9 +19,16 @@ import com.ricston.mule.statistics.model.AbstractCollectorStatistics;
 import com.ricston.mule.statistics.model.ThreadCount;
 import com.ricston.mule.statistics.model.ThreadCpuTime;
 
+/**
+ * Collect thread statistics. This collector is stateless.
+ *
+ */
 @Component
 public class ThreadCollector extends AbstractCollector{
 	
+	/**
+	 * Collect different thread statistics
+	 */
 	@Override
 	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting thread statistics");
@@ -34,6 +41,17 @@ public class ThreadCollector extends AbstractCollector{
 		return stats;
 	}
 	
+	/**
+	 * Collect thread count statistics 
+	 * @param mbeanServer The MBean server
+	 * @return List of Thread Count statistics
+	 * @throws MalformedObjectNameException
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	protected List<ThreadCount> collectThreadCountStat(MBeanServerConnection mbeanServer) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		ObjectName objectName = new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME);
 		
@@ -52,6 +70,17 @@ public class ThreadCollector extends AbstractCollector{
 		return stats;
 	}
 	
+	/**
+	 * Collect thread CPU time statistics
+	 * @param mbeanServer The MBean server
+	 * @return List of Thread CPU Time statistics
+	 * @throws MalformedObjectNameException
+	 * @throws AttributeNotFoundException
+	 * @throws InstanceNotFoundException
+	 * @throws MBeanException
+	 * @throws ReflectionException
+	 * @throws IOException
+	 */
 	protected List<ThreadCpuTime> collectThreadCpuTimeStat(MBeanServerConnection mbeanServer) throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
 		ObjectName objectName = new ObjectName(ManagementFactory.THREAD_MXBEAN_NAME);
 		

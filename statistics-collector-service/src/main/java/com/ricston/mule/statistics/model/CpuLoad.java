@@ -1,6 +1,10 @@
 package com.ricston.mule.statistics.model;
 
 
+/**
+ * Statistics for CPU Load
+ *
+ */
 public class CpuLoad extends AbstractCollectorStatistics {
 
 	private Double cpuLoad;

@@ -6,6 +6,10 @@ import java.util.Map;
 import org.codehaus.jackson.annotate.JsonAnyGetter;
 import org.codehaus.jackson.annotate.JsonAnySetter;
 
+/**
+ * Statistics for KPI
+ *
+ */
 public class KPI extends AbstractCollectorStatistics {
 	
 	private Map<String, Object> kpis;

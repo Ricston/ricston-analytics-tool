@@ -1,6 +1,9 @@
 package com.ricston.mule.statistics.model;
 
-
+/**
+ * Statistics for Flow
+ *
+ */
 public class Flow extends AbstractCollectorStatistics {
 
 	private String application;

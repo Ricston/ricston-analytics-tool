@@ -1,6 +1,9 @@
 package com.ricston.mule.statistics.model;
 
-
+/**
+ * Statistics for physical memory
+ *
+ */
 public class PhysicalMemory extends AbstractCollectorStatistics {
 
 	private Long memorySize;

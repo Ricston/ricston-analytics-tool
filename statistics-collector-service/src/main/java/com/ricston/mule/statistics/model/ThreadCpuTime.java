@@ -1,5 +1,9 @@
 package com.ricston.mule.statistics.model;
 
+/**
+ * Statistics for CPU time
+ *
+ */
 public class ThreadCpuTime extends AbstractCollectorStatistics {
 
 	private Long threadCpuTime;

@@ -1,6 +1,9 @@
 package com.ricston.mule.statistics.model;
 
-
+/**
+ * Statistics for Flow
+ *
+ */
 public class Flow extends AbstractCollectorStatistics {
 
 	private String application;
@@ -171,6 +174,11 @@ public class Flow extends AbstractCollectorStatistics {
 		this.newTotalProcessingTime = newTotalProcessingTime;
 	}
 	
+	/**
+	 * Calculate delta in statistics
+	 * 
+	 * @param oldStatistics The previous statistics
+	 */
 	public void workNewStatistics(Flow oldStatistics){
 		
 		if (oldStatistics == null){

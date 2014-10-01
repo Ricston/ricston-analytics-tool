@@ -1,5 +1,9 @@
 package com.ricston.mule.statistics.model;
 
+/**
+ * Statistics for thread count
+ *
+ */
 public class ThreadCount extends AbstractCollectorStatistics {
 
 	private Integer threadCount;

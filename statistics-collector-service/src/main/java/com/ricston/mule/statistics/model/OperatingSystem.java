@@ -1,6 +1,9 @@
 package com.ricston.mule.statistics.model;
 
-
+/**
+ * Statistics for operating system
+ *
+ */
 public class OperatingSystem extends AbstractCollectorStatistics {
 
 	private Long openFileDescriptorCount;

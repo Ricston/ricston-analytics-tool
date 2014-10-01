@@ -1,5 +1,9 @@
 package com.ricston.mule.statistics.model;
 
+/**
+ * Statistics types
+ *
+ */
 public enum StatisticsType {
 	
 	GARBADGE_COLLECTOR,

@@ -1,5 +1,9 @@
 package com.ricston.mule.statistics.model;
 
+/**
+ * Statistics for gabage collector
+ *
+ */
 public class Garbadge extends AbstractCollectorStatistics {
 
 	private Long collectionCount;

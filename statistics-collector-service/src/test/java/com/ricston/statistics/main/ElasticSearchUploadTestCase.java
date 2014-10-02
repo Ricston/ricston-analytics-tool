@@ -9,8 +9,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.http.client.ClientProtocolException;
@@ -27,8 +25,6 @@ import com.ricston.statistics.model.Memory;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-context.xml" })
 public class ElasticSearchUploadTestCase {
-	
-	private final DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 	
 	@Autowired
 	private ElasticSearchUpload elasticSearchUpload;

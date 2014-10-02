@@ -16,7 +16,7 @@
 		<jdk.version>1.7</jdk.version>
 		
 		<!-- Dependency versions -->
-		<junit.version>4.9</junit.version>
+		<junit.version>4.11</junit.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<jackson.version>1.9.13</jackson.version>
 		<slf4j.version>1.7.7</slf4j.version>
@@ -191,6 +191,31 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>${guava.version}</version>
+		</dependency>
+		
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.github.tomakehurst</groupId>
+		    <artifactId>wiremock</artifactId>
+		    <version>1.50</version>
+		    <scope>test</scope>
+		
+		    <!-- Include this if you have dependency conflicts for Guava, Jetty, Jackson or Apache HTTP Client -->
+		    <classifier>standalone</classifier>
 		</dependency>
 
     </dependencies>

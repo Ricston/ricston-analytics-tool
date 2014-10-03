@@ -15,6 +15,7 @@ import javax.management.MBeanException;
 import javax.management.MalformedObjectNameException;
 import javax.management.ReflectionException;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,16 +24,27 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.ricston.statistics.main.ElasticSearchUpload;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-context.xml" })
 public class CollectAndUploadTestCase {
 	
 	@Autowired
+	private ElasticSearchUpload elasticSearchUpload;
+	
+	@Autowired
 	private CollectAndUpload collectAndUpload;
 	
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(9200);
+	
+	@Before
+	public void setupElasticSearchUpload(){
+		//set elastic search upload to point to localhost 9200 (for our mock service)
+		elasticSearchUpload.setHost("localhost");
+		elasticSearchUpload.setPort(9200);
+	}
 	
 	@Test
 	public void testCollectAndUpload() throws MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{

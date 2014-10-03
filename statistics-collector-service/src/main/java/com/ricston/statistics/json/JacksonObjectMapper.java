@@ -22,7 +22,7 @@ public class JacksonObjectMapper extends ObjectMapper{
 	 */
     private static DateFormat getIso8601DateFormat(){
     	TimeZone utcTimezone = TimeZone.getTimeZone("UTC");
-        DateFormat iso8601DateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        DateFormat iso8601DateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         iso8601DateFormat.setTimeZone(utcTimezone);
         
         return iso8601DateFormat;

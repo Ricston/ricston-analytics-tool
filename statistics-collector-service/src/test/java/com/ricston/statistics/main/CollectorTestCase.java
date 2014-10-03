@@ -32,9 +32,9 @@ public class CollectorTestCase {
 		
 		Map<StatisticsType, List<? extends AbstractCollectorStatistics>> stats = collector.collectAllStatisticalData();
 		
-		//7 collectors in total, but KPIs and Flow collectors will not return
+		//10 collectors in total, but KPIs and Flow collectors will not return
 		//any data unless paired with a connector on the Mule side
-		Assert.assertEquals(5, stats.size());
+		Assert.assertEquals(8, stats.size());
 	}
 	
 //	@Test

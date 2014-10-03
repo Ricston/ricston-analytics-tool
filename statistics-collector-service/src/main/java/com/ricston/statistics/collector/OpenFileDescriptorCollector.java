@@ -22,7 +22,7 @@ import com.ricston.statistics.model.OperatingSystem;
  *
  */
 @Component
-public class OpenFileDescriptorCountCollector extends AbstractCollector{
+public class OpenFileDescriptorCollector extends AbstractCollector{
 	
 	/**
 	 * Collect statistics for open file descriptor count

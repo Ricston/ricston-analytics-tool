@@ -15,69 +15,29 @@ import javax.management.ReflectionException;
 
 import org.springframework.stereotype.Component;
 
-import com.ricston.statistics.model.AbstractCollectorStatistics;
-import com.ricston.statistics.model.CpuLoad;
-import com.ricston.statistics.model.OperatingSystem;
 import com.ricston.statistics.model.PhysicalMemory;
 
 /**
- * Collect operating system statistics. This collector is stateless.
+ * Collect physical memory statistics. This collector is stateless.
  *
  */
 @Component
-public class OperatingSystemCollector extends AbstractCollector{
+public class PhysicalMemoryCollector extends AbstractCollector{
 	
 	/**
 	 * Collect statistics for different operating system features
 	 */
 	@Override
-	public List<AbstractCollectorStatistics> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
+	public List<PhysicalMemory> collect(MBeanServerConnection mbeanServer) throws IOException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException{
 		logger.debug("Collecting operating system statistics");
 		
-		List<AbstractCollectorStatistics> stats = new ArrayList<AbstractCollectorStatistics>();
+		List<PhysicalMemory> stats = new ArrayList<PhysicalMemory>();
 		
 		ObjectName objectName = new ObjectName(ManagementFactory.OPERATING_SYSTEM_MXBEAN_NAME);
 
-		OperatingSystem stat = new OperatingSystem();
-		stat.setName("OperatingSystem");
-		stat.setOpenFileDescriptorCount((Long)mbeanServer.getAttribute(objectName, "OpenFileDescriptorCount"));
-		
-		stats.add(stat);
-		
 		stats.addAll(collectPhysicalMemoryStat(mbeanServer, objectName));
-		stats.addAll(collectCpuLoadStat(mbeanServer, objectName));
 		
-		logger.debug("Collecting operating system statistics completed");
-		return stats;
-		
-	}
-	
-	/**
-	 * Collect CPU load statistics
-	 * 
-	 * @param mbeanServer The MBean Server
-	 * @param objectName The operating system mbean name
-	 * @return List of CPU load statistics
-	 * @throws AttributeNotFoundException
-	 * @throws InstanceNotFoundException
-	 * @throws MBeanException
-	 * @throws ReflectionException
-	 * @throws IOException
-	 */
-	public List<CpuLoad> collectCpuLoadStat(MBeanServerConnection mbeanServer, ObjectName objectName) throws AttributeNotFoundException, InstanceNotFoundException, MBeanException, ReflectionException, IOException{
-		
-		List<CpuLoad> stats = new ArrayList<CpuLoad>();
-		
-		CpuLoad stat = new CpuLoad();
-		stat.setName("ProcessCpuLoad");
-		stat.setCpuLoad((Double)mbeanServer.getAttribute(objectName, "ProcessCpuLoad"));
-		stats.add(stat);
-		
-		stat = new CpuLoad();
-		stat.setName("SystemCpuLoad");
-		stat.setCpuLoad((Double)mbeanServer.getAttribute(objectName, "SystemCpuLoad"));
-		stats.add(stat);
-		
+		logger.debug("Collecting physical memory statistics completed");
 		return stats;
 		
 	}

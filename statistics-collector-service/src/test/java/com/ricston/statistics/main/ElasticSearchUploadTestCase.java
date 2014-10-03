@@ -35,7 +35,7 @@ public class ElasticSearchUploadTestCase {
 	private ElasticSearchUpload elasticSearchUpload;
 	
 	@Rule
-	public WireMockRule wireMockRule = new WireMockRule(9200);
+	public WireMockRule wireMockRule = new WireMockRule(9201);
 	
 	protected Memory createSampleStatistic(){
 		Memory memoryStatistic = new Memory();
@@ -53,7 +53,7 @@ public class ElasticSearchUploadTestCase {
 	public void setupElasticSearchUpload(){
 		//set elastic search upload to point to localhost 9200 (for our mock service)
 		elasticSearchUpload.setHost("localhost");
-		elasticSearchUpload.setPort(9200);
+		elasticSearchUpload.setPort(9201);
 	}
 	
 	@Test

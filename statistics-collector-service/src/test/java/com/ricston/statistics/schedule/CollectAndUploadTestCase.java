@@ -37,13 +37,13 @@ public class CollectAndUploadTestCase {
 	private CollectAndUpload collectAndUpload;
 	
 	@Rule
-	public WireMockRule wireMockRule = new WireMockRule(9200);
+	public WireMockRule wireMockRule = new WireMockRule(9201);
 	
 	@Before
 	public void setupElasticSearchUpload(){
 		//set elastic search upload to point to localhost 9200 (for our mock service)
 		elasticSearchUpload.setHost("localhost");
-		elasticSearchUpload.setPort(9200);
+		elasticSearchUpload.setPort(9201);
 	}
 	
 	@Test

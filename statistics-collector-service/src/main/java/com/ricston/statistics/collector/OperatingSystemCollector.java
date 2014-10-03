@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import com.ricston.statistics.model.OperatingSystem;
 
 /**
- * Collect operating sytsem statistics. This collector is stateless.
+ * Collect operating system statistics. This collector is stateless.
  *
  */
 @Component

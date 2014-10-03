@@ -12,13 +12,13 @@ import com.ricston.statistics.model.AbstractCollectorStatistics;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-context.xml" })
-public class OpenFileDescriptorCountCollectorTestCase extends AbstractCollectorTestCase {
+public class OperatingSystemCollectorTestCase extends AbstractCollectorTestCase {
 	
 	@Autowired
-	private OpenFileDescriptorCollector openFileDescriptorCountCollector;
+	private OperatingSystemCollector openFileDescriptorCountCollector;
 	
 	@Override
-	protected OpenFileDescriptorCollector getCollector() {
+	protected OperatingSystemCollector getCollector() {
 		return openFileDescriptorCountCollector;
 	}
 

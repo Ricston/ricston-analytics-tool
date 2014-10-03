@@ -18,11 +18,11 @@ import org.springframework.stereotype.Component;
 import com.ricston.statistics.model.OperatingSystem;
 
 /**
- * Collect open file descriptor count statistics. This collector is stateless.
+ * Collect operating sytsem statistics. This collector is stateless.
  *
  */
 @Component
-public class OpenFileDescriptorCollector extends AbstractCollector{
+public class OperatingSystemCollector extends AbstractCollector{
 	
 	/**
 	 * Collect statistics for open file descriptor count

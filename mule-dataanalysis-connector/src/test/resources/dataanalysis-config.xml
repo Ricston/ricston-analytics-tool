@@ -12,13 +12,13 @@
     <dataanalysis:config name="dataAnalysisConfig" />
 
     <flow name="testFlow">
-        <dataanalysis:collect-for-analysis kpiName="kpi1">
+        <dataanalysis:collect-for-analysis kpiName="kpi1" config-ref="dataAnalysisConfig">
         	<dataanalysis:data ref="#[['hello' : 'test']]" />
         </dataanalysis:collect-for-analysis>
     </flow>
     
     <flow name="testFlow2">
-        <dataanalysis:collect-for-analysis kpiName="kpi2">
+        <dataanalysis:collect-for-analysis kpiName="kpi2" config-ref="dataAnalysisConfig">
         	<dataanalysis:data>
         		<dataanalysis:datum key="hello">test</dataanalysis:datum>
         	</dataanalysis:data>

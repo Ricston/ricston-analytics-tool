@@ -38,7 +38,7 @@
 				<version>2.7</version>
 				<configuration>
 					<check>
-						<branchRate>85</branchRate>
+						<branchRate>50</branchRate>
 						<lineRate>85</lineRate>
 						<haltOnFailure>true</haltOnFailure>
 						<totalBranchRate>40</totalBranchRate>
@@ -48,6 +48,11 @@
 						<regexes>
 							<regex>
 								<pattern>com.ricston.modules.dataanalysis.processors.*</pattern>
+								<branchRate>0</branchRate>
+								<lineRate>0</lineRate>
+							</regex>
+							<regex>
+								<pattern>com.ricston.modules.dataanalysis.agents.*</pattern>
 								<branchRate>0</branchRate>
 								<lineRate>0</lineRate>
 							</regex>

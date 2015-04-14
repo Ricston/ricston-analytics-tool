@@ -92,14 +92,14 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	logger.info("*Starting Data Analysis Connector*");
     	logger.info("**********************************");
     	
+    	startMapDb();
+    	
     	MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 		ObjectName id = new ObjectName(String.format(MBEAN_NAME, application));
 		StandardMBean mbean = new StandardMBean(this, DataAnalysisMBean.class);
 		server.registerMBean(mbean, id);
 		
 		logger.info("Registered mbean using name: " + String.format(MBEAN_NAME, application));
-		
-		startMapDb();
     }
     
     /**
@@ -115,13 +115,13 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	logger.info("*Stopping Data Analysis Connector*");
     	logger.info("**********************************");
     	
-    	stopMapDb();
-    	
     	MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 		ObjectName id = new ObjectName(String.format(MBEAN_NAME, application));
 		server.unregisterMBean(id);
 		
 		logger.info("Unregistered mbean with name: " + String.format(MBEAN_NAME, application));
+		
+		stopMapDb();
     }
     
     /**
@@ -149,7 +149,7 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	FileUtils.forceMkdir(new File(dbFolderPath));
     	File dbFile = new File(dbFilePath);
     	
-    	logger.info("Using " + dbFilePath + " as directory for analysis data persistency");
+    	logger.info("Using " + dbFilePath + " as a store for analysis data persistency");
     	
     	//try to create the database
     	try
@@ -158,11 +158,9 @@ public class DataAnalysisModule implements DataAnalysisMBean
     	}
     	catch (IOError exc){
     		//if store was corrupted, back it up and create a new one
-    		if (exc.getMessage().contains("Wrong index checksum")){
-    			logger.error("Store is corrupted due to an incorrect shutdown. A backup of the current store will be taken, and a new store will be created.");
-    			FileUtils.renameFile(dbFile, new File(dbFolderPath + "/" + UUID.getUUID()));  
-    			db = makeDb(dbFile);
-    		}
+			logger.error("Store is corrupted. A backup of the current store will be taken, and a new store will be created.");
+			FileUtils.renameFile(dbFile, new File(dbFolderPath + "/" + UUID.getUUID() + ".backup"));  
+			db = makeDb(dbFile);
     	}
     }
     

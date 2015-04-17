@@ -3,7 +3,7 @@
  * a copy of which has been included with this distribution in the LICENSE.md file.
  */
 
-package com.ricston.modules.dataanalysis;
+package com.ricston.connectors.dataanalysis;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,9 @@ import org.mule.tck.junit4.FunctionalTestCase;
 import org.mule.util.FileUtils;
 import org.mule.util.IOUtils;
 
-public class DataAnalysisModuleTest extends FunctionalTestCase
+import com.ricston.connectors.dataanalysis.DataAnalysisConnector;
+
+public class DataAnalysisConnectorTest extends FunctionalTestCase
 {
     @Override
     protected String getConfigResources()
@@ -40,7 +42,7 @@ public class DataAnalysisModuleTest extends FunctionalTestCase
     	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
     	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
     	
-    	DataAnalysisModule connector = muleContext.getRegistry().lookupObject(DataAnalysisModule.class);
+    	DataAnalysisConnector connector = muleContext.getRegistry().lookupObject(DataAnalysisConnector.class);
     	List<Map<String, Object>> data = connector.getData();
     	Assert.assertNotNull(data);
     	Assert.assertEquals(3, data.size());
@@ -52,7 +54,7 @@ public class DataAnalysisModuleTest extends FunctionalTestCase
     	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
     	runFlowWithPayloadAndExpect("testFlow2", "Another string", "Another string");
     	
-    	DataAnalysisModule connector = muleContext.getRegistry().lookupObject(DataAnalysisModule.class);
+    	DataAnalysisConnector connector = muleContext.getRegistry().lookupObject(DataAnalysisConnector.class);
     	List<Map<String, Object>> data = connector.getData();
     	Assert.assertNotNull(data);
     	Assert.assertEquals(2, data.size());
@@ -61,7 +63,7 @@ public class DataAnalysisModuleTest extends FunctionalTestCase
     @Test
     public void corruptedDataFile() throws IOException, RegistrationException, MalformedObjectNameException, MBeanRegistrationException, InstanceNotFoundException, NotCompliantMBeanException, InstanceAlreadyExistsException{
     	
-    	DataAnalysisModule connector = muleContext.getRegistry().lookupObject(DataAnalysisModule.class);
+    	DataAnalysisConnector connector = muleContext.getRegistry().lookupObject(DataAnalysisConnector.class);
     	
     	//stop connector
     	connector.stopModule();

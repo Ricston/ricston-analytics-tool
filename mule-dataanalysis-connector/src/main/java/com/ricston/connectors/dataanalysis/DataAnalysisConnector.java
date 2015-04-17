@@ -3,7 +3,7 @@
  * a copy of which has been included with this distribution in the LICENSE.md file.
  */
 
-package com.ricston.modules.dataanalysis;
+package com.ricston.connectors.dataanalysis;
 import java.io.File;
 import java.io.IOError;
 import java.io.IOException;
@@ -27,27 +27,27 @@ import javax.management.StandardMBean;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mule.util.FileUtils;
-import org.mule.util.UUID;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mule.api.MuleContext;
-import org.mule.api.annotations.Module;
+import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.expressions.Expr;
 import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.lifecycle.Stop;
+import org.mule.util.FileUtils;
+import org.mule.util.UUID;
 
 /**
- * Data Analysis Module. 
+ * Data Analysis Connector. 
  * 
  * Collect KPIs from your flows and persist them temporarily until
  * the statistics collector reads all the data and publishes for analysis.
  *
  * @author Ricston Ltd.
  */
-@Module(name="dataanalysis", schemaVersion="1.0", friendlyName="DataAnalysis")
-public class DataAnalysisModule implements DataAnalysisMBean
+@Connector(name="dataanalysis", schemaVersion="1.0", friendlyName="DataAnalysis")
+public class DataAnalysisConnector implements DataAnalysisMBean
 {
 	/**
 	 * MapDb database

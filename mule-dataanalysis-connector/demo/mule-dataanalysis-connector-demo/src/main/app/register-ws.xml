@@ -1,0 +1,31 @@
+<mule xmlns:dataanalysis="http://www.mulesoft.org/schema/mule/dataanalysis" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:spring="http://www.springframework.org/schema/beans" 
+	  xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	  xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	  xmlns:management="http://www.mulesoft.org/schema/mule/management"
+	  xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/dataanalysis http://www.mulesoft.org/schema/mule/dataanalysis/current/mule-dataanalysis.xsd
+http://www.mulesoft.org/schema/mule/management http://www.mulesoft.org/schema/mule/management/current/mule-management.xsd" version="EE-3.5.0">
+
+	<management:jmx-default-config />
+	<context:property-placeholder location="ports.properties"/>
+    <dataanalysis:config name="DataAnalysis" doc:name="DataAnalysis"/>
+	
+	<flow name="Registration" doc:name="Registration">
+        <http:inbound-endpoint host="${service.host}" port="${service.port}" path="register" doc:name="HTTP" exchange-pattern="request-response"/>
+        <cxf:jaxws-service serviceClass="com.ricston.component.IRegistration" doc:name="CXF" />
+        <dataanalysis:collect-for-analysis config-ref="DataAnalysis" doc:name="DataAnalysis Age" kpiName="age" >
+            <dataanalysis:data ref="#[['age' : payload.age]]"/>
+        </dataanalysis:collect-for-analysis>
+        <component class="com.ricston.component.Registration" doc:name="Java"/>
+    </flow>
+</mule>
+

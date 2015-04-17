@@ -1,6 +1,6 @@
 # DataAnalysis Anypoint Connector
 
-[Connector description including destination service or application with]
+Collects data to be analysed in details by RAT.
 
 # Mule supported versions
 

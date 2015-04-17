@@ -36,11 +36,11 @@ public class DataAnalysisConnectorTest extends FunctionalTestCase
     }
 
     @Test
-    public void testSameKpi() throws Exception
+    public void testCollectForAnalysisSameKpi() throws Exception
     {
-    	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
-    	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
-    	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
+    	runFlowWithPayloadAndExpect("CollectForAnalysis-SameKpi", "Another string", "Another string");
+    	runFlowWithPayloadAndExpect("CollectForAnalysis-SameKpi", "Another string", "Another string");
+    	runFlowWithPayloadAndExpect("CollectForAnalysis-SameKpi", "Another string", "Another string");
     	
     	DataAnalysisConnector connector = muleContext.getRegistry().lookupObject(DataAnalysisConnector.class);
     	List<Map<String, Object>> data = connector.getData();
@@ -49,10 +49,10 @@ public class DataAnalysisConnectorTest extends FunctionalTestCase
     }
     
     @Test
-    public void testMultipleKpis() throws Exception
+    public void testCollectForAnalysisMultipleKpis() throws Exception
     {
-    	runFlowWithPayloadAndExpect("testFlow", "Another string", "Another string");
-    	runFlowWithPayloadAndExpect("testFlow2", "Another string", "Another string");
+    	runFlowWithPayloadAndExpect("CollectForAnalysis-SameKpi", "Another string", "Another string");
+    	runFlowWithPayloadAndExpect("CollectForAnalysis-MultipleKpis", "Another string", "Another string");
     	
     	DataAnalysisConnector connector = muleContext.getRegistry().lookupObject(DataAnalysisConnector.class);
     	List<Map<String, Object>> data = connector.getData();

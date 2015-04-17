@@ -3,6 +3,7 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
       xmlns:dataanalysis="http://www.mulesoft.org/schema/mule/dataanalysis"
       xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -11,13 +12,13 @@
 
     <dataanalysis:config name="dataAnalysisConfig" />
 
-    <flow name="testFlow">
+    <flow name="CollectForAnalysis-SameKpi" doc:name="CollectForAnalysis-SameKpi">
         <dataanalysis:collect-for-analysis kpiName="kpi1" config-ref="dataAnalysisConfig">
         	<dataanalysis:data ref="#[['hello' : 'test']]" />
         </dataanalysis:collect-for-analysis>
     </flow>
     
-    <flow name="testFlow2">
+    <flow name="CollectForAnalysis-MultipleKpis" doc:name="CollectForAnalysis-MultipleKpis">
         <dataanalysis:collect-for-analysis kpiName="kpi2" config-ref="dataAnalysisConfig">
         	<dataanalysis:data>
         		<dataanalysis:datum key="hello">test</dataanalysis:datum>

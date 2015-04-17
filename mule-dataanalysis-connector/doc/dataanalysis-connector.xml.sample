@@ -1,11 +1,11 @@
 <!-- BEGIN_INCLUDE(dataanalysis:collect-for-analysis) -->
-    <dataanalysis:collect-for-analysis kpiName="kpi1">
+    <dataanalysis:collect-for-analysis kpiName="kpi1" config-ref="dataanalysisConnector">
     	<dataanalysis:data ref="#[['hello' : 'test']]" />
     </dataanalysis:collect-for-analysis>
 <!-- END_INCLUDE(dataanalysis:collect-for-analysis) -->
 
 <!-- BEGIN_INCLUDE(dataanalysis:collect-for-analysis-2) -->
-	<dataanalysis:collect-for-analysis kpiName="kpi2">
+	<dataanalysis:collect-for-analysis kpiName="kpi2" config-ref="dataanalysisConnector">
     	<dataanalysis:data>
     		<dataanalysis:datum key="hello">test</dataanalysis:datum>
     	</dataanalysis:data>

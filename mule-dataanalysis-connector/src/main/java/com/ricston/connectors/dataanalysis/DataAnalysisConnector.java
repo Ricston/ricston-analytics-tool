@@ -182,7 +182,7 @@ public class DataAnalysisConnector implements DataAnalysisMBean
      *
      * @param kpiName name for the key performance indicator
      * @param data Key value pairs of data to collect
-     * @param the message id
+     * @param messageId the message id
      */
     @Processor
     public void collectForAnalysis(String kpiName, Map<String, Object> data, @Expr("#[message.id]")String messageId)

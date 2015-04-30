@@ -5,5 +5,6 @@ RAT is a tool to help you analyse your data in your IT systems to be able to use
 For more detailed information, please visit our wiki page.
 
 wiki: https://github.com/Ricston/ricston-analytics-tool/wiki
+
 issues: https://github.com/Ricston/ricston-analytics-tool/issues
 

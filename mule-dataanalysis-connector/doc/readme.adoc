@@ -1,0 +1,19 @@
+= FIFO Queue Anypoint™ Connector
+
+Collects data to be analysed in detail by RAT.
+
+== Author
+Ricston Ltd.
+
+== Supported Mule runtime versions
+Mule 3.6.x
+
+== Installation 
+
+You can access the full documentation http://www.mulesoft.org/documentation/display/current/Data+Analysis+Connector[here].
+
+For more information click https://github.com/Ricston/ricston-analytics-tool/wiki[here].
+
+== Reporting Issues
+
+We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/Ricston/ricston-analytics-tool/issues.
